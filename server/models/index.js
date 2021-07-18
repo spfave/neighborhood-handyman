@@ -3,7 +3,7 @@
 //need date, city, job by id, proposals by id
 //contractor: skills, jobs completed.  Proposals: contractor
 //name, cost estimate, start date estimate, time frame estimate
-
+const {Schema, model} = require('mongoose');
 
 
 const baseOptions = {
