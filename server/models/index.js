@@ -34,6 +34,10 @@ const Base = mongoose.model('Base', new mongoose.Schema({
                  type: String,
                  maxLength: 500,
              },
+             ratingAuthor: {
+                 type: String,
+                required: true,
+             },
              createdAt: {
                  type: Date,
                  default: Date.now,
