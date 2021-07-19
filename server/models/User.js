@@ -40,6 +40,22 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    review: [
+        {
+            reviewText: {
+                type: String,
+                maxLength: 500,
+            },
+            reviewAuthor: {
+                type: String,
+               required: true,
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+            },
+        },
+    ],
 });
 
 // Set up pre-save middleware to create password

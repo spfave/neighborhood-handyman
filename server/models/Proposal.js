@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const proposalSchema = new Schema({
-    proposals: [
-        {
             name: {
                 type: String,
                 required: true,
@@ -28,8 +26,6 @@ const proposalSchema = new Schema({
                 type: String,
                 required: true,
             }
-        }
-    ],
 });
 
 const Proposal = mongoose.model('Proposal', proposalSchema);
