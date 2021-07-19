@@ -1,11 +1,11 @@
-const queries = require('./queries');
+// const queries = require('./queries');
 const mutations = require('./mutations');
 
 const resolvers = {
   Query: {
     // me:
     // jobs:
-    // jobs: queries.getJobs,
+    // jobs: queries.jobs,
     // job:
     // proposals:
     // proposal:
@@ -13,7 +13,7 @@ const resolvers = {
 
   Mutation: {
     signup: mutations.signup,
-    // login:
+    login: mutations.login,
     // createJob:
     // createProposal:
   },

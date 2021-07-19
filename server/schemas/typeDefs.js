@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
-    role: String
+    userType: String
   }
 
   type Customer {
@@ -14,7 +14,7 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
-    role: String
+    userType: String
   }
 
   type Auth {
@@ -30,8 +30,9 @@ const typeDefs = gql`
       name: String!
       email: String!
       password: String!
-      role: String!
+      userType: String!
     ): Auth
+    login(email: String!, password: String!): Auth
   }
 `;
 
