@@ -1,10 +1,10 @@
 //customer: jobs: name, description, required skills, 
 //need date, city, job by id, proposals by id
 
-//finds base in index.js
-const Base = require('./index');
+//finds User in index.js
+const User = require('./index');
 
-const Customer = Base.descriminator('Customer', new mongoose.Schema({
+const Customer = User.descriminator('Customer', new mongoose.Schema({
     jobsNeeded : [
         {
             name: {

@@ -1,9 +1,9 @@
 //contractor: skills, jobs completed.  Proposals: contractor
 //name, cost estimate, start date estimate, time frame estimate
 
-const Base = require('./index');
+const User = require('./User');
 
-const Contractor = Base.discriminator('Contractor', new mongoose.Schema({
+const Contractor = User.discriminator('Contractor', new mongoose.Schema({
     skills: {
         
         required: true,
@@ -29,3 +29,5 @@ const Contractor = Base.discriminator('Contractor', new mongoose.Schema({
         }
     ]
 }))
+
+module.exports = mongoose.model('Contractor')
