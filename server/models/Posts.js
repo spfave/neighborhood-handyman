@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const postsSchema = new Schema({
+const postSchema = new Schema({
     jobsNeeded: [
         {
             name: {
@@ -38,4 +38,8 @@ const postsSchema = new Schema({
             },
         },
     ],
-})
+});
+
+const Posts = mongoose.model('Posts', postSchema);
+
+module.exports = Posts;
