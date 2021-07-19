@@ -6,6 +6,7 @@ const path = require('path');
 // Database, GraphQL, Utility imports
 const db = require('./config/connection');
 const { typeDefs, resolvers } = require('./schemas');
+const { authMiddleware } = require('./utils/auth');
 
 // Server setup
 const PORT = process.env.PORT || 3001;
@@ -15,6 +16,7 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: authMiddleware,
 });
 server.applyMiddleware({ app });
 
