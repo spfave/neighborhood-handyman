@@ -5,7 +5,6 @@
 //name, cost estimate, start date estimate, time frame estimate
 const {Schema, model} = require('mongoose');
 
-
 const userOptions = {
     discriminatorKey: 'userType',
     collection: 'users',
@@ -55,4 +54,6 @@ const User = mongoose.model('User', new mongoose.Schema({
      }
 }))
 
+
 module.exports = mongoose.model('User');
+
