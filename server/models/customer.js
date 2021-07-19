@@ -1,29 +1,31 @@
 //customer: jobs: name, description, required skills, 
 //need date, city, job by id, proposals by id
 
-//finds User in index.js
-const User = require('./index');
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const Customer = User.descriminator('Customer', new mongoose.Schema({
+const Posts = require('./Posts');
+
+const customerSchema = new Schema({
     review: [
         {
             reviewText: {
                 type: String,
                 maxLength: 500,
             },
-            ratingAuthor: {
+            reviewAuthor: {
                 type: String,
                required: true,
             },
             createdAt: {
                 type: Date,
-                default: Date.now,            },
-            rating: {
-                type: INTEGER,
-
-            }
+                default: Date.now,
+            },
         },
     ],
-}))
+    posts: [Posts.schema]
+})
 
-module.exports = mongoose.model('Customer')
+const Customer = mongoose.model('Customer', customerSchema);
+
+module.exports = Customer;

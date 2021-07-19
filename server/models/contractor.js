@@ -1,33 +1,15 @@
 //contractor: skills, jobs completed.  Proposals: contractor
 //name, cost estimate, start date estimate, time frame estimate
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const User = require('./User');
+const Proposal = require('./Proposal');
 
-const Contractor = User.discriminator('Contractor', new mongoose.Schema({
+const contractorSchema = new Schema({
     skills: {
         
         required: true,
     },
-    proposals: [
-        {
-            name: {
-                type: String,
-                required: true,
-            },
-            costEstimate: {
-                type: INTEGER,
-                required: true,
-            },
-            startEstimate: {
-                type: Date,
-                required: true,
-            },
-            timeFrame: {
-                type: String,
-                required: true,
-            }
-        }
-    ],
     review: [
         {
             reviewText: {
@@ -43,12 +25,9 @@ const Contractor = User.discriminator('Contractor', new mongoose.Schema({
                 default: Date.now,
                 get: (timestamp) => dateFormat(timestamp),
             },
-            rating: {
-                type: INTEGER,
-
-            }
         },
     ],
-}))
+    proposal: [Proposal.schema]
+})
 
-module.exports = mongoose.model('Contractor')
+module.exports = mongoose.model('Contractor', contractorSchema)
