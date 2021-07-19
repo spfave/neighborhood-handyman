@@ -27,7 +27,28 @@ const Contractor = User.discriminator('Contractor', new mongoose.Schema({
                 required: true,
             }
         }
-    ]
+    ],
+    review: [
+        {
+            reviewText: {
+                type: String,
+                maxLength: 500,
+            },
+            ratingAuthor: {
+                type: String,
+               required: true,
+            },
+            createdAt: {
+                type: Date,
+                default: Date.now,
+                get: (timestamp) => dateFormat(timestamp),
+            },
+            rating: {
+                type: INTEGER,
+
+            }
+        },
+    ],
 }))
 
 module.exports = mongoose.model('Contractor')
