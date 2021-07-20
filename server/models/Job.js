@@ -36,6 +36,12 @@ const jobSchema = new Schema({
     default: Date.now,
   },
   proposals: [Proposal.schema],
+  
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 });
 
 const Job = mongoose.model('Job', jobSchema);

@@ -26,6 +26,16 @@ const proposalSchema = new Schema({
     type: String,
     required: true,
   },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  job: {
+    type: Schema.Types.ObjectId,
+    ref: 'Job',
+    required: true,
+  },
 });
 
 const Proposal = mongoose.model('Proposal', proposalSchema);
