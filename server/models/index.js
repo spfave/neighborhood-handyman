@@ -4,4 +4,4 @@ const Customer = require('./Customer');
 const Job = require('./Job');
 const Proposal = require('./Proposal');
 
-module.exports = { User, Contractor, Customer, Posts, Proposal };
+module.exports = { User, Contractor, Customer, Job, Proposal };
