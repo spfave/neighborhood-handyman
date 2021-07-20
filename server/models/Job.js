@@ -38,6 +38,6 @@ const jobSchema = new Schema({
   proposals: [Proposal.schema],
 });
 
-const Job = mongoose.model('Posts', jobSchema);
+const Job = mongoose.model('Job', jobSchema);
 
 module.exports = Job;
