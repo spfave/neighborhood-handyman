@@ -1,0 +1,10 @@
+footer {
+    grid-row: 2 / span 1;
+    background-color: gray;
+}
+
+footer h3 {
+    padding: 50px;
+    font-size: 32px;
+    text-align: center;
+}
