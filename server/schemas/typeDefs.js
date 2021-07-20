@@ -12,6 +12,15 @@ const typeDefs = gql`
     reviews: [Review]
   }
 
+  input NewUserInput {
+    userType: String
+    firstName: String
+    lastName: String
+    email: String
+    password: String
+    city: String
+  }
+
   type Review {
     reviewText: String
     reviewAuthor: String
@@ -35,14 +44,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    signup(
-      userType: String!
-      firstName: String!
-      lastName: String!
-      email: String!
-      password: String!
-      city: String!
-    ): Auth
+    signup(newUser: NewUserInput!): Auth
     login(email: String!, password: String!): Auth
   }
 `;
