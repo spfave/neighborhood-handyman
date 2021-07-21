@@ -37,7 +37,6 @@ const typeDefs = gql`
 
   type Job {
     name: String
-    jobCustomer: String
     description: String
     skills: [String]
     city: String
@@ -58,7 +57,7 @@ const typeDefs = gql`
     description: String
     costEstimate: Number
     startEstimate: String
-    timeFrame: String
+    timeFrame: Number
   }
 
   input NewProposalInput {
