@@ -36,7 +36,7 @@ const proposalSchema = new Schema({
     ref: 'Job',
     required: true,
   },
-});
+};);
 
 const Proposal = mongoose.model('Proposal', proposalSchema);
 
