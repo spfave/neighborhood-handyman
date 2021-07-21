@@ -35,6 +35,24 @@ const typeDefs = gql`
     userType: String
   }
 
+  type Job {
+    name: String
+    jobCustomer: String
+    description: String
+    skills: [String]
+    city: String
+    needDate: Date
+    createdDate: Date
+  }
+
+  type Proposal {
+    name: String
+    description: String
+    costEstimate: Number
+    startEstimate: Date
+    timeFrame: String
+  }
+
   type Auth {
     token: ID!
   }
@@ -46,6 +64,8 @@ const typeDefs = gql`
   type Mutation {
     signup(newUser: NewUserInput!): Auth
     login(email: String!, password: String!): Auth
+    createJob(newJob: NewJobInput!)
+    createProposal(newProposal: NewProposalInput!)
   }
 `;
 
