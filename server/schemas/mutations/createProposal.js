@@ -1,9 +1,9 @@
 const { Proposal } = require('../../models');
 
-async function newProp(parent, { newProposal }) {
+async function createProposal(parent, { newProposal }) {
     const proposal = await Proposal.create(newProposal);
   
     return { proposal };
   }
   
-  module.exports = newProp;
+  module.exports = createProposal;
