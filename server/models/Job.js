@@ -35,7 +35,7 @@ const jobSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  // proposals: [Proposal.schema],  
+  proposals: [Proposal.schema],  
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
