@@ -9,7 +9,7 @@ const proposalSchema = new Schema({
   },
   description: {
     type: String,
-    required: true,
+    required: false,
     minLength: 1,
     maxLength: 1000,
     trim: true,
@@ -23,7 +23,7 @@ const proposalSchema = new Schema({
     required: true,
   },
   timeFrame: {
-    type: String,
+    type: Number,
     required: true,
   },
   user: {
