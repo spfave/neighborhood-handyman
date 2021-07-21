@@ -1,4 +1,4 @@
-const { User, Customer } = require('../../models');
+const { User } = require('../../models');
 const { signToken } = require('../../utils/auth');
 
 async function signup(parent, { newUser }) {
