@@ -1,0 +1,52 @@
+[
+  {
+    "firstName": "Brian",
+    "lastName": "Kernighan",
+    "email": "bkernighan@techfriends.dev",
+    "password": "password01",
+    "city": "Oakton"
+  },
+  {
+    "firstName": "Max",
+    "lastName": "Kanat-Alexander",
+    "email": "mkanatalexander@techfriends.dev",
+    "password": "password02",
+    "city": "Fairfax"
+  },
+  {
+    "firstName": "Kent",
+    "lastName": "Beck",
+    "email": "kbeck@techfriends.dev",
+    "password": "password04",
+    "city": "Vienna"
+  },
+  {
+    "firstName": "Edward",
+    "lastName": "Berard",
+    "email": "evberard@techfriends.dev",
+    "password": "password05",
+    "city": "Mantua"
+  },
+  {
+    "firstName": "Alan",
+    "lastName": "Kay",
+    "email": "akay@techfriends.dev",
+    "password": "password06",
+    "city": "Legato"
+  },
+
+  {
+    "firstName": "David",
+    "lastName": "Thomas",
+    "email": "dthomas@techfriends.dev",
+    "password": "password08",
+    "city": "Fairfax"
+  },
+  {
+    "firstName": "Donald",
+    "lastName": "Knuth",
+    "email": "dknuth@techfriends.dev",
+    "password": "password09",
+    "city": "Oakton"
+  }
+]
