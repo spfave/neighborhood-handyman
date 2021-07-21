@@ -8,20 +8,16 @@ const jobSchema = new Schema({
     type: String,
     required: true,
   },
-  jobCustomer: {
-    type: String,
-    required: true,
-  },
   description: {
     type: String,
-    required: true,
+    required: false,
     minLength: 1,
     maxLength: 1000,
     trim: true,
   },
   skills: {
     type: [],
-    required: true,
+    required: false,
   },
   city: {
     type: String,
@@ -35,7 +31,12 @@ const jobSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  proposals: [Proposal.schema],
+  proposals: [Proposal.schema],  
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 });
 
 const Job = mongoose.model('Job', jobSchema);

@@ -35,6 +35,39 @@ const typeDefs = gql`
     userType: String
   }
 
+  type Job {
+    name: String
+    description: String
+    skills: [String]
+    city: String
+    needDate: String
+  }
+
+  input NewJobInput {
+    name: String
+    jobCustomer: String
+    description: String
+    skills: [String]
+    city: String
+    needDate: String
+  }
+
+  type Proposal {
+    name: String
+    description: String
+    costEstimate: Number
+    startEstimate: String
+    timeFrame: Number
+  }
+
+  input NewProposalInput {
+    name: String
+    description: String
+    costEstimate: Number
+    startEstimate: String
+    timeFrame: String
+  }
+
   type Auth {
     token: ID!
   }
@@ -46,6 +79,8 @@ const typeDefs = gql`
   type Mutation {
     signup(newUser: NewUserInput!): Auth
     login(email: String!, password: String!): Auth
+    createJob(newJob: NewJobInput!): Job
+    createProposal(newProposal: NewProposalInput!): Proposal
   }
 `;
 
