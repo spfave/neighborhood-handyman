@@ -4,9 +4,9 @@ const mutations = require('./mutations');
 const resolvers = {
   Query: {
     me: queries.login,
-    jobs: queries.getJobs,
+    // jobs: queries.getJobs,
     // job:
-    proposals: queries.getProposals,
+    // proposals: queries.getProposals,
     // proposal:
   },
 
