@@ -3,6 +3,7 @@ import { HashRouter, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CustomerDashboard from "./pages/CustomerDashboard";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <div className="content">
           <Route path="/cust-dashboard" component={CustomerDashboard}/>
+          <Route path="/login" component={Login}/>
         </div>
         <Footer />
       </div>
