@@ -7,7 +7,6 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    password: String
     city: String
     reviews: [Review]
   }
@@ -41,6 +40,8 @@ const typeDefs = gql`
     skills: [String]
     city: String
     needDate: String
+    proposals: [Proposal]
+    user: User
   }
 
   input NewJobInput {
@@ -55,17 +56,19 @@ const typeDefs = gql`
   type Proposal {
     name: String
     description: String
-    costEstimate: Number
+    costEstimate: Float
     startEstimate: String
-    timeFrame: Number
+    timeFrame: Int
+    user: User
+    job: Job
   }
 
   input NewProposalInput {
     name: String
     description: String
-    costEstimate: Number
+    costEstimate: Float
     startEstimate: String
-    timeFrame: String
+    timeFrame: Int
   }
 
   type Auth {
@@ -74,6 +77,8 @@ const typeDefs = gql`
 
   type Query {
     me: User
+    getJobs(userID: ID!): [Job]
+    getJobProposals(jobID: ID!): [Proposal]
   }
 
   type Mutation {
