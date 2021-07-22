@@ -11,6 +11,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Auth from "./utils/auth";
 
 // Component imports
 import Header from "./components/Header";
@@ -43,23 +44,22 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
-  return (
+export default function App() {
+  return ( 
     <ApolloProvider client={client}>
       <BrowserRouter>
         <div className="App">
-          {/* Need to refactor in future so Login page doesn't display nav links */}
           <Header />
-          <div className="content">
-            {/* Sets default page to Dashboard */}
-            <Route exact path="/">
-              <Redirect to="/dashboard" />
-            </Route>
-            <Route exact path="/account" component={Account} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
-          </div>
+            <section className="content">
+              {/* Sets default page to Dashboard */}
+              <Route exact path="/">
+                <Redirect to="/dashboard" />
+              </Route>
+              <Route exact path="/account" component={Account} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={SignUp} />
+            </section>
           <Footer />
         </div>
       </BrowserRouter>
@@ -67,4 +67,32 @@ function App() {
   );
 }
 
-export default App;
+// Once we have backend connected, since everyone will be unauthenticated at the moment
+// export default function App() {
+//   return ( 
+//     <ApolloProvider client={client}>
+//       <BrowserRouter>
+//           {
+//             Auth ? (
+//               <Login />
+//             ) : (
+//               <div className="App">
+//                 <Header />
+//                 <section className="content">
+//                   {/* Sets default page to Dashboard */}
+//                   <Route exact path="/">
+//                     <Redirect to="/dashboard" />
+//                   </Route>
+//                   <Route exact path="/account" component={Account} />
+//                   <Route exact path="/dashboard" component={Dashboard} />
+//                   <Route exact path="/login" component={Login} />
+//                   <Route exact path="/signup" component={SignUp} />
+//                 </section>
+//                 <Footer />
+//               </div>
+//             )
+//           }
+//       </BrowserRouter>
+//     </ApolloProvider>
+//   );
+// }
