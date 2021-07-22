@@ -1,4 +1,9 @@
-import { BrowserRouter, Route } from "react-router-dom";
+// Package imports
+import { 
+  BrowserRouter, 
+  Route, 
+  Redirect 
+} from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,10 +12,15 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+// Component imports
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import CustomerDashboard from "./pages/CustomerDashboard";
+
+// Page imports
+import Account from "./pages/Account";
+import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,8 +51,14 @@ function App() {
           {/* Need to refactor in future so Login page doesn't display nav links */}
           <Header />
           <div className="content">
-            <Route path="/cust-dashboard" component={CustomerDashboard}/>
-            <Route path="/login" component={Login}/>
+            {/* Sets default page to Dashboard */}
+            <Route exact path="/">
+              <Redirect to="/dashboard" />
+            </Route>
+            <Route exact path="/account" component={Account} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
           </div>
           <Footer />
         </div>
