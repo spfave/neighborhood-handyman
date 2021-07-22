@@ -3,7 +3,7 @@ const mutations = require('./mutations');
 
 const resolvers = {
   Query: {
-    // me:
+    me: queries.login,
     jobs: queries.getJobs,
     // job:
     proposals: queries.getProposals,
