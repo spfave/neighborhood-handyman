@@ -6,11 +6,13 @@ const { Schema } = mongoose;
 const Proposal = require('./Proposal');
 
 const contractorSchema = new Schema({
-    skills: {
-        type: String, 
-        required: true,
-    },
-    proposal: [Proposal.schema]
-})
+  skills: {
+    type: String,
+    required: true,
+  },
+  proposal: [Proposal.schema],
+});
 
-module.exports = mongoose.model('Contractor', contractorSchema)
+const Contractor = mongoose.model('Contractor', contractorSchema);
+
+module.exports = Contractor;
