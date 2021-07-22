@@ -55,17 +55,17 @@ const typeDefs = gql`
   type Proposal {
     name: String
     description: String
-    costEstimate: Int
+    costEstimate: Float
     startEstimate: String
-    timeFrame: String
+    timeFrame: Int
   }
 
   input NewProposalInput {
     name: String
     description: String
-    costEstimate: Int
+    costEstimate: Float
     startEstimate: String
-    timeFrame: String
+    timeFrame: Int
   }
 
   type Auth {
