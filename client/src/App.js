@@ -42,6 +42,7 @@ function App() {
           <Header />
           <div className="content">
             <Route path="/cust-dashboard" component={CustomerDashboard}/>
+            <Route path="/login" component={Login}/>
           </div>
           <Footer />
         </div>
