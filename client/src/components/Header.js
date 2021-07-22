@@ -18,9 +18,9 @@ const navLinks = [
 
 export default function Header() {
     return ( 
-        <div className="header">
+        <header className="header">
             <h1>Neighborhood Handyman</h1>   
             <Nav links={navLinks} />             
-        </div>
+        </header>
     )
 }
