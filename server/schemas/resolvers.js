@@ -20,6 +20,7 @@ const resolvers = {
     login: mutations.login,
     createJob: mutations.createJob,
     createProposal: mutations.createProposal,
+    deleteJob: mutations.deleteJob,
   },
 };
 
