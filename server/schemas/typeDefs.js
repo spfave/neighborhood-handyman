@@ -88,6 +88,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createJob(newJob: NewJobInput!): Job
     createProposal(newProposal: NewProposalInput!): Proposal
+    deleteJob(jobId: ID!): Job
   }
 `;
 
