@@ -52,6 +52,15 @@ export default function SignUp() {
             });
 
             Auth.login(data.addProfile.token);
+
+            // Clear form values if data is successfully submitted
+            setFormState({
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: '',
+                city: ''
+            });
         } catch (e) {
             console.error(e);
         }
