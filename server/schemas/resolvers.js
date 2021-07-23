@@ -16,7 +16,7 @@ const resolvers = {
   },
 
   Mutation: {
-    signup: mutations.signup,
+    addUser: mutations.addUser,
     login: mutations.login,
     createJob: mutations.createJob,
     createProposal: mutations.createProposal,
