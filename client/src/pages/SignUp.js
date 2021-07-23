@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../assets/css/signup.css";
 
 // Mutation imports
@@ -33,6 +34,8 @@ export default function SignUp() {
         // Toggles green checkbox when minimum length is reached
         if (formState.password.length > 7) {
             setIsValidLength(true);
+        } else {
+            setIsValidLength(false);
         }
     };
 
