@@ -3,51 +3,78 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../assets/css/signup.css";
 
-function SignUp() {
+// Mutation imports
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from "../utils/auth";
 
-    // State variables
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [city, setCity] = useState("");
+export default function SignUp() {
+
+    // State variable
+    const [formState, setFormState] = useState(
+        {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            city: ''
+        }
+    )
     const [isValidLength, setIsValidLength] = useState(false);
 
+    const handleChange = ({ target }) => {
+        const { name, value } = target;
+    
+        setFormState({
+          ...formState,
+          [name]: value,
+        });
+
+        // Toggles green checkbox when minimum length is reached
+        if (formState.password.length > 7) {
+            setIsValidLength(true);
+        }
+    };
+
+    const [addUser, { error, data }] = useMutation(ADD_USER);
+
+    // submit form
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+
+        try {
+            const { data } = await addUser({
+                variables: { ...formState },
+            });
+
+            Auth.login(data.addProfile.token);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
     // Renders submit button unclickable until each field meets minimum length
-    function validate() {
+    const validate = () => {
         return (
-            firstName.length > 0 &&
-            lastName.length > 0 &&
-            email.length > 0 && 
-            password.length > 8 &&
-            city.length > 0
+            formState.firstName.length > 0 &&
+            formState.lastName.length > 0 &&
+            formState.email.length > 0 && 
+            formState.password.length > 8 &&
+            formState.city.length > 0
         )
     }
 
-    // Toggles green checkbox when minimum length is reached
-    function validatePassword(event) {
-        setPassword(event.target.value);
-
-        if (password.length > 7) {
-            setIsValidLength(true);
-        } else {
-            setIsValidLength(false);
-        }
-    }
-
-    function preventDefault(event) {
-        event.preventDefault();
-    }
-
     return (
-        <Form onSubmit={preventDefault}>
+        <Form onSubmit={handleFormSubmit}>
             <Form.Group size="lg" controlId="firstName">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control
                     autoFocus
+                    name="firstName"
                     type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
+                    value={formState.firstName}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -55,9 +82,10 @@ function SignUp() {
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control
                     autoFocus
+                    name="lastName"
                     type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    value={formState.lastName}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -65,9 +93,10 @@ function SignUp() {
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                     autoFocus
+                    name="email"
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={formState.email}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -75,9 +104,10 @@ function SignUp() {
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                     autoFocus
+                    name="password"
                     type="password"
-                    value={password}
-                    onChange={validatePassword}
+                    value={formState.password}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -90,9 +120,10 @@ function SignUp() {
                 <Form.Label>City</Form.Label>
                 <Form.Control
                     autoFocus
+                    name="city"
                     type="city"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
+                    value={formState.city}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -102,7 +133,5 @@ function SignUp() {
         </Form>
     )
 }
-
-export default SignUp;
 
 // Built with inspiration from https://serverless-stack.com/chapters/create-a-login-page.html
