@@ -1,3 +1,12 @@
-const user = require('./user');
+const getUser = require('./user');
+const { getUserJobs, getUserProposals } = require('./userQueries');
+const getJobs = require('./getJobs');
+const getJobProposals = require('./getJobProposals');
 
-module.exports = { user };
+module.exports = {
+  getUser,
+  getUserJobs,
+  getUserProposals,
+  getJobs,
+  getJobProposals,
+};
