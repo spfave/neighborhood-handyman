@@ -10,7 +10,7 @@ import Auth from "../utils/auth";
 
 export default function SignUp() {
 
-    // State variable
+    // State variables
     const [formState, setFormState] = useState(
         {
             firstName: '',
@@ -19,7 +19,7 @@ export default function SignUp() {
             password: '',
             city: ''
         }
-    )
+    );
     const [isValidLength, setIsValidLength] = useState(false);
 
     const handleChange = ({ target }) => {
@@ -33,6 +33,8 @@ export default function SignUp() {
         // Toggles green checkbox when minimum length is reached
         if (formState.password.length > 7) {
             setIsValidLength(true);
+        } else {
+            setIsValidLength(false);
         }
     };
 
@@ -45,10 +47,19 @@ export default function SignUp() {
 
         try {
             const { data } = await addUser({
-                variables: { ...formState },
+                variables: { newUser: { ...formState }},
             });
 
-            Auth.login(data.addProfile.token);
+            Auth.login(data.addUser.token);
+
+            // Clear state if data is successfully submitted
+            setFormState({
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: '',
+                city: ''
+            });
         } catch (e) {
             console.error(e);
         }
@@ -66,71 +77,73 @@ export default function SignUp() {
     }
 
     return (
-        <Form onSubmit={handleFormSubmit}>
-            <Form.Group size="lg" controlId="firstName">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control
-                    autoFocus
-                    name="firstName"
-                    type="text"
-                    value={formState.firstName}
-                    onChange={handleChange}
-                />
-            </Form.Group>
+        <div className="card">
+            <Form onSubmit={handleFormSubmit}>
+                <Form.Group size="lg" controlId="firstName">
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control
+                        autoFocus
+                        name="firstName"
+                        type="text"
+                        value={formState.firstName}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
 
-            <Form.Group size="lg" controlId="lastName">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control
-                    autoFocus
-                    name="lastName"
-                    type="text"
-                    value={formState.lastName}
-                    onChange={handleChange}
-                />
-            </Form.Group>
+                <Form.Group size="lg" controlId="lastName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control
+                        autoFocus
+                        name="lastName"
+                        type="text"
+                        value={formState.lastName}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
 
-            <Form.Group size="lg" controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                    autoFocus
-                    name="email"
-                    type="email"
-                    value={formState.email}
-                    onChange={handleChange}
-                />
-            </Form.Group>
+                <Form.Group size="lg" controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        autoFocus
+                        name="email"
+                        type="email"
+                        value={formState.email}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
 
-            <Form.Group size="lg" controlId="password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    autoFocus
-                    name="password"
-                    type="password"
-                    value={formState.password}
-                    onChange={handleChange}
-                />
-            </Form.Group>
+                <Form.Group size="lg" controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        autoFocus
+                        name="password"
+                        type="password"
+                        value={formState.password}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
 
-            <p>
-                {/* Font awesome icon class name updates symbol shown */}
-                <i className={isValidLength ? "fas fa-check-square" : ""}></i> Password must be 8 characters long
-            </p>
+                <p>
+                    {/* Font awesome icon class name updates symbol shown */}
+                    <i className={isValidLength ? "fas fa-check-square" : ""}></i> Password must be 8 characters long
+                </p>
 
-            <Form.Group size="lg" controlId="city">
-                <Form.Label>City</Form.Label>
-                <Form.Control
-                    autoFocus
-                    name="city"
-                    type="city"
-                    value={formState.city}
-                    onChange={handleChange}
-                />
-            </Form.Group>
+                <Form.Group size="lg" controlId="city">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control
+                        autoFocus
+                        name="city"
+                        type="city"
+                        value={formState.city}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
 
-            <Button block size="lg" type="submit" disabled={!validate()}>
-                Sign Up
-            </Button>
-        </Form>
+                <Button block size="lg" type="submit" disabled={!validate()}>
+                    Sign Up
+                </Button>
+            </Form>
+        </div>
     )
 }
 
