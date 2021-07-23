@@ -12,6 +12,7 @@ module.exports = {
 
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) token = token.split(' ').pop().trim();
+
     if (!token) return req;
 
     // verify token and get user data out of it
