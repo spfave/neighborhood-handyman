@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../assets/css/signup.css";
 
 // Mutation imports
@@ -48,12 +47,12 @@ export default function SignUp() {
 
         try {
             const { data } = await addUser({
-                variables: { ...formState },
+                variables: { newUser: { ...formState }},
             });
 
-            Auth.login(data.addProfile.token);
+            Auth.login(data.addUser.token);
 
-            // Clear form values if data is successfully submitted
+            // Clear state if data is successfully submitted
             setFormState({
                 firstName: '',
                 lastName: '',
