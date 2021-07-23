@@ -82,7 +82,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    signup(newUser: NewUserInput!): Auth
+    addUser(newUser: NewUserInput!): Auth
     login(email: String!, password: String!): Auth
     createJob(newJob: NewJobInput!): Job
     createProposal(newProposal: NewProposalInput!): Proposal
