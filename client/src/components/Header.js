@@ -3,17 +3,17 @@ import "../assets/css/header.css";
 
 const navLinks = [
     {
-        name: "Dashboard",
+        name: "My Dashboard",
         path: "/dashboard"
+    },
+    {
+        name: "Job Listings",
+        path: "/listings"
     },
     {
         name: "My Account",
         path: "/account"
-    },
-    {
-        name: "Log Out",
-        path: "/logout"
-    },
+    }
 ]
 
 export default function Header() {

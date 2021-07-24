@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-//import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -57,6 +57,7 @@ const Login = (props) => {
         </Form.Group>
         <Button block size="lg" type="submit">Log In</Button>
       </Form>
+      <p>Need to create an account? <Link to="/signup">Sign up</Link>.</p>
     </div>
   )
 }
