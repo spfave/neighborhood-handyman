@@ -38,17 +38,16 @@ const typeDefs = gql`
     skills: [String]
     city: String
     needDate: String
-    proposals: [Proposal]
     user: User
   }
 
-  input NewJobInput {
-    name: String
-    jobCustomer: String
+  input JobInput {
+    name: String!
     description: String
     skills: [String]
     city: String
     needDate: String
+    user: ID
   }
 
   type Proposal {
@@ -84,7 +83,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(newUser: NewUserInput!): Auth
     login(email: String!, password: String!): Auth
-    createJob(newJob: NewJobInput!): Job
+    createJob(newJob: JobInput!): Job
     createProposal(newProposal: NewProposalInput!): Proposal
   }
 `;
