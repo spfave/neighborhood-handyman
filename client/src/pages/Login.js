@@ -52,7 +52,7 @@ const Login = (props) => {
         </Form.Group>
         <Form.Group size="lg" controlId="password">
           <Form.Label>Password</Form.Label>
-          <Form.Control autoFocus name="password" type="text" value={formState.password} onChange={handleChange}
+          <Form.Control autoFocus name="password" type="password" value={formState.password} onChange={handleChange}
           />
         </Form.Group>
         <Button block size="lg" type="submit">Log In</Button>
