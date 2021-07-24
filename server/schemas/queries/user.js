@@ -1,13 +1,13 @@
-const { User } = require('../../models');
+// const { User } = require('../../models');
 
-async function user(parent, args, context) {
-  if (context.user) {
-    const user = await User.findById(context.user._id);
+// async function user(parent, args, context) {
+//   if (context.user) {
+//     const user = await User.findById(context.user._id);
 
-    return user;
-  }
+//     return user;
+//   }
 
-  throw new AuthenticationError('Not logged in');
-}
+//   throw new AuthenticationError('Not logged in');
+// }
 
-module.exports = user;
+// module.exports = user;
