@@ -7,9 +7,8 @@ const resolvers = {
     getUserJobs: queries.getUserJobs,
     getUserProposals: queries.getUserProposals,
     getJobs: queries.getJobs,
-    // job:
+    getJob: queries.getJob,
     getJobProposals: queries.getJobProposals,
-    // jobs: queries.getJobs,
     // job:
     // proposals: queries.getProposals,
     // proposal:
