@@ -89,7 +89,10 @@ const typeDefs = gql`
     createJob(newJob: NewJobInput!): Job
     createProposal(newProposal: NewProposalInput!): Proposal
     deleteJob(jobId: ID!): Job
+    deleteProposal(proposalId: ID!): Proposal
     editJob(updateJob: NewJobInput!): Job
+    editProposal(updateProp: NewProposalInput!): Proposal
+
   }
 `;
 

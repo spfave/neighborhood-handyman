@@ -21,7 +21,9 @@ const resolvers = {
     createJob: mutations.createJob,
     createProposal: mutations.createProposal,
     deleteJob: mutations.deleteJob,
+    deleteProposal: mutations.deleteProp,
     editJob: mutations.editJob,
+    editProposal: mutations.editProp,
   },
 };
 
