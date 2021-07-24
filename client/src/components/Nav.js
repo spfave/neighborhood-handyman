@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Auth from "../utils/auth";
 
 const Nav = props => {
     const navLinks = props.links.map((link, index) => {
@@ -7,10 +8,17 @@ const Nav = props => {
         </li> )
     })
 
+    const logout = () => {
+        Auth.logout();
+    }
+
     return (
         <nav>
             <ul>
                 {navLinks}
+                <li>
+                    <button onClick={logout}>Log Out</button>
+                </li>
             </ul>
         </nav>
     )

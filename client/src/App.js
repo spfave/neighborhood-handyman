@@ -45,55 +45,43 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// Once we have backend connected, since everyone will be unauthenticated at the moment
 export default function App() {
   return ( 
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <div className="App">
-          <Header />
-            <section className="content">
-              {/* Sets default page to Dashboard */}
-              <Route exact path="/">
-                <Redirect to="/dashboard" />
-              </Route>
-              <Route exact path="/account" component={Account} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={SignUp} />
-            </section>
-          <Footer />
-        </div>
+          {
+            Auth.loggedIn() ? (
+              <div className="App">
+                <Header />
+                <section className="content">
+                  {/* Catch all for any URLs not under Routes */}
+                  <Route path="/">
+                    <Redirect to="/dashboard" />
+                  </Route>
+                  <Route exact path="/account" component={Account} />
+                  <Route exact path="/dashboard" component={Dashboard} />
+                  {/* <Route exact path="/listings" component={JobListings} /> */}
+                </section>
+                <Footer />
+              </div>
+            ) : (
+              // Once user is logged in, /login and /signup are no longer accessible
+              <section className="content">
+                {/* Catch all for any URLs besides /login or /signup */}
+                <Route path="/">
+                    <Redirect to="/login" />
+                </Route>
+                <Route exact path="/login" >
+                  <Login />
+                </Route>
+                <Route exact path="/signup" >
+                  <SignUp />
+                </Route>
+              </section>
+            )
+          }
       </BrowserRouter>
     </ApolloProvider>
   );
 }
-
-// Once we have backend connected, since everyone will be unauthenticated at the moment
-// export default function App() {
-//   return ( 
-//     <ApolloProvider client={client}>
-//       <BrowserRouter>
-//           {
-//             Auth ? (
-//               <Login />
-//             ) : (
-//               <div className="App">
-//                 <Header />
-//                 <section className="content">
-//                   {/* Sets default page to Dashboard */}
-//                   <Route exact path="/">
-//                     <Redirect to="/dashboard" />
-//                   </Route>
-//                   <Route exact path="/account" component={Account} />
-//                   <Route exact path="/dashboard" component={Dashboard} />
-//                   <Route exact path="/login" component={Login} />
-//                   <Route exact path="/signup" component={SignUp} />
-//                 </section>
-//                 <Footer />
-//               </div>
-//             )
-//           }
-//       </BrowserRouter>
-//     </ApolloProvider>
-//   );
-// }
