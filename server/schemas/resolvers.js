@@ -9,9 +9,7 @@ const resolvers = {
     getJobs: queries.getJobs,
     getJob: queries.getJob,
     getJobProposals: queries.getJobProposals,
-    // job:
-    // proposals: queries.getProposals,
-    // proposal:
+    getProposal: queries.getProposal,
   },
 
   Mutation: {

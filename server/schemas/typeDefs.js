@@ -73,6 +73,7 @@ const typeDefs = gql`
     getJobs: [Job]
     getJob(jobID: ID!): Job
     getJobProposals(jobID: ID!): [Proposal]
+    getProposal(proposalID: ID!): Proposal
   }
 
   type Mutation {

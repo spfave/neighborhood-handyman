@@ -1,10 +1,10 @@
 // const getUser = require('./user');
 const userQueries = require('./userQueries');
 const jobQueries = require('./jobQueries');
-const getJobProposals = require('./getJobProposals');
+const proposalQueries = require('./proposalQueries');
 
 module.exports = {
   ...userQueries,
   ...jobQueries,
-  getJobProposals,
+  ...proposalQueries,
 };
