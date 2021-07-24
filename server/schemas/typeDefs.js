@@ -44,7 +44,7 @@ const typeDefs = gql`
     user: User
   }
 
-  input NewJobInput {
+  input JobInput {
     name: String
     jobCustomer: String
     description: String
@@ -63,7 +63,7 @@ const typeDefs = gql`
     job: Job
   }
 
-  input NewProposalInput {
+  input ProposalInput {
     name: String
     description: String
     costEstimate: Float
@@ -86,12 +86,12 @@ const typeDefs = gql`
   type Mutation {
     addUser(newUser: NewUserInput!): Auth
     login(email: String!, password: String!): Auth
-    createJob(newJob: NewJobInput!): Job
-    createProposal(newProposal: NewProposalInput!): Proposal
+    createJob(newJob: JobInput!): Job
+    createProposal(newProposal: ProposalInput!): Proposal
     deleteJob(jobId: ID!): Job
     deleteProposal(proposalId: ID!): Proposal
-    editJob(updateJob: NewJobInput!): Job
-    editProposal(updateProp: NewProposalInput!): Proposal
+    editJob(updateJob: JobInput!): Job
+    editProposal(updateProp: ProposalInput!): Proposal
 
   }
 `;
