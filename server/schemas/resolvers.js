@@ -1,5 +1,6 @@
 const queries = require('./queries');
 const mutations = require('./mutations');
+const scalars = require('./scalars');
 
 const resolvers = {
   Query: {
@@ -18,6 +19,7 @@ const resolvers = {
     createJob: mutations.createJob,
     createProposal: mutations.createProposal,
   },
+  Date: scalars.dateScalar,
 };
 
 module.exports = resolvers;
