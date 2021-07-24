@@ -2,9 +2,10 @@ const { Proposal } = require('../../models');
 
 async function createProposal(parent, { newProposal }) {
   const proposal = await Proposal.create(newProposal);
-  const proposalPopulated = await Proposal.findById(proposal._id)
+  const proposalPopulated = await proposal
     .populate('user job')
-    .populate({ path: 'job', populate: 'user' });
+    .populate({ path: 'job', populate: 'user' })
+    .execPopulate();
 
   return proposalPopulated;
 }

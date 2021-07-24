@@ -25,6 +25,7 @@ const typeDefs = gql`
   }
 
   type Job {
+    _id: ID
     name: String
     description: String
     skills: [String]
@@ -43,6 +44,7 @@ const typeDefs = gql`
   }
 
   type Proposal {
+    _id: ID
     name: String
     description: String
     costEstimate: Float
