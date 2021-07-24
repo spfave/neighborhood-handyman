@@ -60,12 +60,14 @@ const typeDefs = gql`
     job: Job
   }
 
-  input NewProposalInput {
+  input ProposalInput {
     name: String
     description: String
     costEstimate: Float
     startEstimate: String
     timeFrame: Int
+    user: ID
+    job: ID
   }
 
   type Auth {
@@ -84,7 +86,7 @@ const typeDefs = gql`
     addUser(newUser: NewUserInput!): Auth
     login(email: String!, password: String!): Auth
     createJob(newJob: JobInput!): Job
-    createProposal(newProposal: NewProposalInput!): Proposal
+    createProposal(newProposal: ProposalInput!): Proposal
   }
 `;
 
