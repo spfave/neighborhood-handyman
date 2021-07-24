@@ -45,29 +45,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// export default function App() {
-//   return ( 
-//     <ApolloProvider client={client}>
-//       <BrowserRouter>
-//         <div className="App">
-//           <Header />
-//             <section className="content">
-//               {/* Sets default page to Dashboard */}
-//               <Route exact path="/">
-//                 <Redirect to="/dashboard" />
-//               </Route>
-//               <Route exact path="/account" component={Account} />
-//               <Route exact path="/dashboard" component={Dashboard} />
-//               <Route exact path="/login" component={Login} />
-//               <Route exact path="/signup" component={SignUp} />
-//             </section>
-//           <Footer />
-//         </div>
-//       </BrowserRouter>
-//     </ApolloProvider>
-//   );
-// }
-
 // Once we have backend connected, since everyone will be unauthenticated at the moment
 export default function App() {
   return ( 
@@ -84,6 +61,7 @@ export default function App() {
                   </Route>
                   <Route exact path="/account" component={Account} />
                   <Route exact path="/dashboard" component={Dashboard} />
+                  {/* <Route exact path="/listings" component={JobListings} /> */}
                 </section>
                 <Footer />
               </div>
