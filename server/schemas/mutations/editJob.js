@@ -1,6 +1,9 @@
-const { Job } = require('../../models');
-const { findByIdAndRemove, findByIdAndUpdate } = require('../../models/User');
+const Job = require('../../models');
 
-async function editJob(parent, { id, description, skills, needDate }) {
-    const job = findByIdAndUpdate()
-}
+async function editJob(parent, { updateJob}) {
+    const job = await Job.findOneAndUpdate(updateJob);
+  
+    return { job };
+  };
+
+  module.exports = editJob;

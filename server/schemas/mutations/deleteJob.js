@@ -1,4 +1,4 @@
-const { Job, User } = require('../../models');
+const { Job } = require('../../models');
 
 
 async function deleteJob (parent, { jobId }) {
@@ -8,7 +8,6 @@ async function deleteJob (parent, { jobId }) {
         });
     return job     
     }
-    throw new AuthenticationError('You need to be logged in!');
 };
 
 module.exports = deleteJob;
