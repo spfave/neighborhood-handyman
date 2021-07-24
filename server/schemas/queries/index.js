@@ -1,12 +1,10 @@
-const getUser = require('./user');
-const { getUserJobs, getUserProposals } = require('./userQueries');
-const getJobs = require('./getJobs');
-const getJobProposals = require('./getJobProposals');
+// const getUser = require('./user');
+const userQueries = require('./userQueries');
+const jobQueries = require('./jobQueries');
+const proposalQueries = require('./proposalQueries');
 
 module.exports = {
-  getUser,
-  getUserJobs,
-  getUserProposals,
-  getJobs,
-  getJobProposals,
+  ...userQueries,
+  ...jobQueries,
+  ...proposalQueries,
 };
