@@ -68,8 +68,8 @@ const typeDefs = gql`
 
   type Query {
     getUser: User
-    getUserJobs(userID: ID!): [Job]
-    getUserProposals(userID: ID!): [Proposal]
+    getUserJobs: [Job]
+    getUserProposals: [Proposal]
     getJobs: [Job]
     getJobProposals(jobID: ID!): [Proposal]
   }

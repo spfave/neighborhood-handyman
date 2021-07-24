@@ -1,5 +1,5 @@
-const getUser = require('./user');
-const { getUserJobs, getUserProposals } = require('./userQueries');
+// const getUser = require('./user');
+const { getUser, getUserJobs, getUserProposals } = require('./userQueries');
 const getJobs = require('./getJobs');
 const getJobProposals = require('./getJobProposals');
 
