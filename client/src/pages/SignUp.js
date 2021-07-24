@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../assets/css/signup.css";
@@ -143,6 +144,8 @@ export default function SignUp() {
                     Sign Up
                 </Button>
             </Form>
+
+            <p>Already have an account? <Link to="/login">Log in</Link>.</p>
         </div>
     )
 }
