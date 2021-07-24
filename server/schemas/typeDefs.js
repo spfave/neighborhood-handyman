@@ -24,14 +24,6 @@ const typeDefs = gql`
     createdAt: String
   }
 
-  type Customer {
-    _id: ID!
-    name: String
-    email: String
-    password: String
-    userType: String
-  }
-
   type Job {
     name: String
     description: String
