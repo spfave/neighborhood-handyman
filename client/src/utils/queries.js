@@ -28,3 +28,32 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+
+export const QUERY_USER_JOBS = gql`
+  query userJobs($userID: ID!) {
+    getUserJobs(userID: $userID) {
+      name
+      description
+      skills
+      city
+      needDate
+      createdDate
+      reviews
+    }
+  }
+`;
+
+export const QUERY_USER_PROPOSALS = gql`
+  query userProposals($userID: ID!) {
+    getUserProposals(userID: $userID) {
+      name
+      description
+      costEstimate
+      startEstimate
+      timeFrame
+      user
+      job
+    }
+  }
+`;
