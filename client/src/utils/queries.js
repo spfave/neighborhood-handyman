@@ -49,8 +49,8 @@ export const QUERY_JOB = gql`
 `;
 
 export const QUERY_ALL_JOBS = gql`
-  query getJobs {
-    job {
+  query getJobs($user: ID, $proposal: ID) {
+    job(user: $user, proposal: $proposal) {
       name
       description
       skills
@@ -65,4 +65,12 @@ export const QUERY_ALL_JOBS = gql`
       }
     }
   }
+`;
+
+export const QUERY_ALL_PROPOSALS = gql`
+
+`;
+
+export const QUERY_PROPOSAL = gql`
+
 `;
