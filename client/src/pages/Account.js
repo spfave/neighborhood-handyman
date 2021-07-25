@@ -42,7 +42,7 @@ const Account = () => {
   return (
     <div>
       <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your Profile page'} f
+        {profileId ? `${profile.name}'s` : 'Your Profile page'}
       </h2>
       )
 

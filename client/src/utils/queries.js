@@ -45,56 +45,56 @@ query singleProfile {
 `;
 
 
-// export const QUERY_USER_JOBS = gql`
-//   query userJobs {
-//     getUserJobs {
+export const QUERY_USER_JOBS = gql`
+  query userJobs {
+    getUserJobs {
+      name
+      description
+      skills
+      city
+      needDate
+    }
+  }
+`;
+
+// export const QUERY_JOB = gql`
+//   query getJob($user: ID, $proposal: ID) {
+//     getJob(user: $user, proposal: $proposal) {
+//       _id
 //       name
 //       description
 //       skills
 //       city
 //       needDate
+//       createdDate
+//       user {
+//         _id
+//       }
+//       proposal {
+//         name
+//       }
 //     }
 //   }
 // `;
 
-export const QUERY_JOB = gql`
-  query getJob($user: ID, $proposal: ID) {
-    getJob(user: $user, proposal: $proposal) {
-      _id
-      name
-      description
-      skills
-      city
-      needDate
-      createdDate
-      user {
-        _id
-      }
-      proposal {
-        name
-      }
-    }
-  }
-`;
-
-export const QUERY_ALL_JOBS = gql`
-  query getJobs($user: ID, $proposal: ID) {
-    getJob(user: $user, proposal: $proposal) {
-      name
-      description
-      skills
-      city
-      needDate
-      createdDate
-      user {
-        name
-      }
-      proposal {
-        prososal.length
-      }
-    }
-  }
-`;
+// export const QUERY_ALL_JOBS = gql`
+//   query getJobs($user: ID, $proposal: ID) {
+//     getJob(user: $user, proposal: $proposal) {
+//       name
+//       description
+//       skills
+//       city
+//       needDate
+//       createdDate
+//       user {
+//         name
+//       }
+//       proposal {
+//         prososal.length
+//       }
+//     }
+//   }
+// `;
 
 export const QUERY_USER_PROPOSALS = gql`
   query userProposals {
