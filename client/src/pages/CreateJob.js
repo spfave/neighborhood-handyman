@@ -72,7 +72,8 @@ export default function CreateJob() {
           <Form.Label>Job Description</Form.Label>
           <Form.Control
             name="description"
-            type="text"
+            as="textarea"
+            rows={3}
             value={formState.description}
             onChange={handleChange}
           ></Form.Control>
@@ -88,7 +89,7 @@ export default function CreateJob() {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group size="lg" controlId="neeDate">
+        <Form.Group size="lg" controlId="needDate">
           <Form.Label>Need Date</Form.Label>
           <Form.Control
             type="date"
