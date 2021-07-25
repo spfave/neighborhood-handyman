@@ -8,18 +8,9 @@
 //import "../assets/css/login.css"
 
 
-// export default function Account() {
-//     return (
-//         <h2>My Account</h2>
-//     )
-// }
-
 import React from "react";
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-//import SkillsList from '../components/SkillsList';
-//import SkillForm from '../components/SkillForm';
 
 import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
 
@@ -40,29 +31,19 @@ const Account = () => {
   const profile = data?.me || data?.profile || {};
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
-    return <Redirect to="/account" />;
-  }
+//   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
+//     return <Redirect to="/account" />;
+//   }
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (!profile?.name) {
-    return (
-      <h4>
-        Please log in to see your profile page.
-      </h4>
-    );
-  }
-
   return (
     <div>
       <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your'} f
+        {profileId ? `${profile.name}'s` : 'Your Profile page'} f
       </h2>
-
-      
       )
 
       <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
