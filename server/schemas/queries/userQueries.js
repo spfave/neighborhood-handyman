@@ -9,8 +9,7 @@ async function getUser(parent, args, context) {
 }
 
 async function getUserJobs(parent, args, context) {
-  if (!context.user)
-    throw new AuthenticationError('You need to be logged in for access');
+  if (!context.user) throw new AuthenticationError('You need to be logged in for access');
 
   return await Job.find({ user: context.user._id }).populate('user');
 }
