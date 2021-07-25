@@ -44,49 +44,26 @@ query singleProfile {
   }
 `;
 
-export const QUERY_JOB = gql`
-  query getJob($user: ID, $proposal: ID) {
-    job(user: $user, proposal: $proposal) {
-      _id
+
+export const QUERY_USER_JOBS = gql`
+  query userJobs {
+    getUserJobs {
       name
       description
       skills
       city
       needDate
-      createdDate
-      user {
-        _id
-      }
-      proposal {
-        name
-      }
     }
   }
 `;
 
-export const QUERY_ALL_JOBS = gql`
-  query getJobs($user: ID, $proposal: ID) {
-    job(user: $user, proposal: $proposal) {
+export const QUERY_USER_PROPOSALS = gql`
+  query userProposals {
+    getUserProposals {
       name
-      description
-      skills
-      city
-      needDate
-      createdDate
-      user {
-        name
-      }
-      proposal {
-        prososal.length
-      }
+      costEstimate
+      startEstimate
+      timeFrame
     }
   }
-`;
-
-export const QUERY_ALL_PROPOSALS = gql`
-
-`;
-
-export const QUERY_PROPOSAL = gql`
-
 `;
