@@ -49,7 +49,7 @@ export const QUERY_JOB = gql`
 `;
 
 export const QUERY_ALL_JOBS = gql`
-  {
+  query getJobs {
     job {
       name
       description
@@ -59,6 +59,9 @@ export const QUERY_ALL_JOBS = gql`
       createdDate
       user {
         name
+      }
+      proposal {
+        prososal.length
       }
     }
   }
