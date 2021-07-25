@@ -43,10 +43,10 @@ const Login = (props) => {
   };
 
   return (
-    <div className="card">
-      <Form onSubmit={handleFormSubmit}>
+    <div className="card m-2">
+      <Form onSubmit={handleFormSubmit} className="m-4">
         <Form.Group size="lg" controlId="email">
-          <Form.Label>Email:</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control autoFocus name="email" type="text" value={formState.email} onChange={handleChange}
           />
         </Form.Group>
@@ -55,9 +55,9 @@ const Login = (props) => {
           <Form.Control autoFocus name="password" type="password" value={formState.password} onChange={handleChange}
           />
         </Form.Group>
-        <Button block size="lg" type="submit">Log In</Button>
+        <Button block size="lg" type="submit" className="mt-3 mb-2">Log In</Button>
       </Form>
-      <p>Need to create an account? <Link to="/signup">Sign up</Link>.</p>
+      <p className="mx-4">Need to create an account? <Link to="/signup">Sign up</Link>.</p>
     </div>
   )
 }
