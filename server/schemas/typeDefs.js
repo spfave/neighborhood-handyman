@@ -3,7 +3,6 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type User {
     _id: ID!
-    userType: String
     firstName: String
     lastName: String
     email: String
@@ -12,7 +11,6 @@ const typeDefs = gql`
   }
 
   input NewUserInput {
-    userType: String
     firstName: String
     lastName: String
     email: String
@@ -26,34 +24,27 @@ const typeDefs = gql`
     createdAt: String
   }
 
-  type Customer {
-    _id: ID!
-    name: String
-    email: String
-    password: String
-    userType: String
-  }
-
   type Job {
+    _id: ID
     name: String
     description: String
     skills: [String]
     city: String
     needDate: String
-    proposals: [Proposal]
     user: User
   }
 
   input JobInput {
-    name: String
-    jobCustomer: String
+    name: String!
     description: String
     skills: [String]
     city: String
     needDate: String
+    user: ID
   }
 
   type Proposal {
+    _id: ID
     name: String
     description: String
     costEstimate: Float
@@ -69,6 +60,8 @@ const typeDefs = gql`
     costEstimate: Float
     startEstimate: String
     timeFrame: Int
+    user: ID
+    job: ID
   }
 
   type Auth {
@@ -77,10 +70,12 @@ const typeDefs = gql`
 
   type Query {
     getUser: User
-    getUserJobs(userID: ID!): [Job]
-    getUserProposals(userID: ID!): [Proposal]
-    getJobs(userID: ID!): [Job]
+    getUserJobs: [Job]
+    getUserProposals: [Proposal]
+    getJobs: [Job]
+    getJob(jobID: ID!): Job
     getJobProposals(jobID: ID!): [Proposal]
+    getProposal(proposalID: ID!): Proposal
   }
 
   type Mutation {
