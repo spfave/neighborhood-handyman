@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from 'react-bootstrap/Card';
+import { Card } from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import dateFormat from 'dateformat';
 
@@ -9,7 +9,7 @@ import { QUERY_USER } from '../utils/queries';
 import { QUERY_ALL_JOBS } from '../utils/queries';
 
 export default function jobList() {
-    const { data } = useQuery(QUERY_USER)
+    const { loading, data } = useQuery(QUERY_USER)
     let user;
 
     if (data) {
@@ -18,7 +18,12 @@ export default function jobList() {
 
     return (
         <>
-
+            <Card>
+                <Card.body>
+                    <Card.title></Card.title>
+                    <Card.body></Card.body>
+                </Card.body>
+            </ Card>
         </>
     )
 }
