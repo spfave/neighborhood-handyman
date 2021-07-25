@@ -29,8 +29,8 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_JOB = gql`
-  query getJob($user: ID) {
-    job {
+  query getJob($user: ID, $proposal: ID) {
+    job(user: $user, proposal: $proposal) {
       _id
       name
       description
@@ -40,6 +40,9 @@ export const QUERY_JOB = gql`
       createdDate
       user {
         _id
+      }
+      proposal {
+        name
       }
     }
   }
