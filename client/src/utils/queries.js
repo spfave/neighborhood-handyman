@@ -43,3 +43,27 @@ query singleProfile {
     }
   }
 `;
+
+
+export const QUERY_USER_JOBS = gql`
+  query userJobs {
+    getUserJobs {
+      name
+      description
+      skills
+      city
+      needDate
+    }
+  }
+`;
+
+export const QUERY_USER_PROPOSALS = gql`
+  query userProposals {
+    getUserProposals {
+      name
+      costEstimate
+      startEstimate
+      timeFrame
+    }
+  }
+`;
