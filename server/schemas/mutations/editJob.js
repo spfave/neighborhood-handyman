@@ -1,6 +1,6 @@
 const { Job } = require('../../models');
 
-async function editJob(parent, context, { jobId, updateJob }) {
+async function editJob(parent, { jobId, updateJob }, context) {
   if (context.user) {
     const job = await Job.findOneAndUpdate({_id: jobId}, updateJob, {new: true});
   }
