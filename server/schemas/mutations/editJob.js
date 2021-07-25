@@ -1,9 +1,10 @@
-const Job = require('../../models');
+const { Job } = require('../../models');
 
-async function editJob(parent, { updateJob}) {
-    const job = await Job.findOneAndUpdate(updateJob);
-  
-    return { job };
+async function editJob(parent, { jobId, updateJob}) {
+  if (context.user) {
+    const job = await Job.findOneAndUpdate({_id: jobId}, updateJob, {new: true});
+  }
+    return job;
   };
 
   module.exports = editJob;

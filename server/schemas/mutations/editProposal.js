@@ -1,9 +1,10 @@
-const Proposal = require('../../models');
+const { Proposal } = require('../../models');
 
-async function editProp(parent, { updateProp}) {
-    const proposal = await Proposal.findOneAndUpdate(updateProp);
-  
-    return { proposal };
+async function editProp(parent, { proposalId, updateProp}) {
+  if (context.user) {
+    const proposal = await Proposal.findOneAndUpdate({_id: proposalId}updateProp, {new: true});
+  }
+    return proposal;
   };
 
   module.exports = editProp;
