@@ -78,8 +78,8 @@ export default function SignUp() {
     }
 
     return (
-        <div className="card">
-            <Form onSubmit={handleFormSubmit}>
+        <div className="card m-2">
+            <Form onSubmit={handleFormSubmit} className="m-4">
                 <Form.Group size="lg" controlId="firstName">
                     <Form.Label>First Name</Form.Label>
                     <Form.Control
@@ -140,12 +140,12 @@ export default function SignUp() {
                     />
                 </Form.Group>
 
-                <Button block size="lg" type="submit" disabled={!validate()}>
+                <Button block size="lg" type="submit" disabled={!validate()} className="mt-3 mb-2">
                     Sign Up
                 </Button>
             </Form>
 
-            <p>Already have an account? <Link to="/login">Log in</Link>.</p>
+            <p className="mx-4">Already have an account? <Link to="/login">Log in</Link>.</p>
         </div>
     )
 }
