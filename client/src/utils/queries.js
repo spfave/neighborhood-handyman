@@ -45,21 +45,21 @@ query singleProfile {
 `;
 
 
-export const QUERY_USER_JOBS = gql`
-  query userJobs {
-    getUserJobs {
-      name
-      description
-      skills
-      city
-      needDate
-    }
-  }
-`;
+// export const QUERY_USER_JOBS = gql`
+//   query userJobs {
+//     getUserJobs {
+//       name
+//       description
+//       skills
+//       city
+//       needDate
+//     }
+//   }
+// `;
 
 export const QUERY_JOB = gql`
   query getJob($user: ID, $proposal: ID) {
-    job(user: $user, proposal: $proposal) {
+    getJob(user: $user, proposal: $proposal) {
       _id
       name
       description
@@ -79,7 +79,7 @@ export const QUERY_JOB = gql`
 
 export const QUERY_ALL_JOBS = gql`
   query getJobs($user: ID, $proposal: ID) {
-    job(user: $user, proposal: $proposal) {
+    getJob(user: $user, proposal: $proposal) {
       name
       description
       skills
