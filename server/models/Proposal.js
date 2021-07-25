@@ -10,7 +10,6 @@ const proposalSchema = new Schema({
   description: {
     type: String,
     required: false,
-    minLength: 1,
     maxLength: 1000,
     trim: true,
   },
