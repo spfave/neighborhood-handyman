@@ -87,7 +87,7 @@ export default function CreateJob({ jobID }) {
         </Form.Group>
 
         <Form.Group size="lg" controlId="costEstimate">
-          <Form.Label>Cost Estimate</Form.Label>
+          <Form.Label>Estimated Cost</Form.Label>
           <Form.Control
             name="costEstimate"
             type="text"
@@ -98,7 +98,7 @@ export default function CreateJob({ jobID }) {
         </Form.Group>
 
         <Form.Group size="lg" controlId="stateEstimate">
-          <Form.Label>Start Date Estimate</Form.Label>
+          <Form.Label>Estimated Start Date</Form.Label>
           <Form.Control
             name="stateEstimate"
             type="date"
@@ -110,7 +110,7 @@ export default function CreateJob({ jobID }) {
         </Form.Group>
 
         <Form.Group size="lg" controlId="timeFrame">
-          <Form.Label>Time to Complete Estimate</Form.Label>
+          <Form.Label>Estimated Time to Complete</Form.Label>
           <Form.Control
             name="timeFrame"
             type="text"
@@ -121,7 +121,7 @@ export default function CreateJob({ jobID }) {
         </Form.Group>
 
         <Button block size="lg" type="submit" disabled={!validate()}>
-          Send Proposal
+          Bid Proposal
         </Button>
       </Form>
     </div>
