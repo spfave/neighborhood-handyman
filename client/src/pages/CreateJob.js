@@ -1,9 +1,12 @@
 import { useState } from 'react';
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import dateFormat from 'dateformat';
-// import { useMutation } from '@apollo/client';
-// import { ADD_JOB } from '../utils/mutations';
+
+import { useMutation } from '@apollo/client';
+import { ADD_JOB } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 export default function CreateJob() {
   // State variables
@@ -24,10 +27,27 @@ export default function CreateJob() {
     });
   };
 
-  // const [addJob, { error, data }] = useMutation(ADD_JOB);
+  const [addJob, { error }] = useMutation(ADD_JOB);
 
   const handleJobFormSubmit = async (event) => {
     event.preventDefault();
+
+    const userID = Auth.getUser().data._id;
+    const newJob = { user: userID, ...formState };
+
+    try {
+      const { data } = addJob({ variables: { newJob } });
+
+      setFormState({
+        name: '',
+        description: '',
+        city: '',
+        needDate: '',
+      });
+      // next steps? direct  back to dashboard?
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // Renders submit button unclickable until each field meets minimum length
