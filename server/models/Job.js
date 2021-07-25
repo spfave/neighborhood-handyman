@@ -11,7 +11,6 @@ const jobSchema = new Schema({
   description: {
     type: String,
     required: false,
-    minLength: 1,
     maxLength: 1000,
     trim: true,
   },
@@ -31,7 +30,7 @@ const jobSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  proposals: [Proposal.schema],  
+  proposals: [Proposal.schema],
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
