@@ -28,3 +28,16 @@ export const ADD_JOB = gql`
     }
   }
 `;
+
+export const ADD_PROPOSAL = gql`
+  mutation createProposal($newProposal: ProposalInput!) {
+    createProposal(newProposal: $newProposal) {
+      _id
+      name
+      description
+      costEstimate
+      startEstimate
+      timeFrame
+    }
+  }
+`;
