@@ -39,14 +39,6 @@ const Account = () => {
     return <div>Loading...</div>;
   }
 
-  if (!profile?.name) {
-    return (
-      <h4>
-        Please log in to view your profile page.
-      </h4>
-    );
-  }
-
   return (
     <div>
       <h2 className="card-header">
