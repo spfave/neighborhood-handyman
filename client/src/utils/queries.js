@@ -31,29 +31,24 @@ export const QUERY_ME = gql`
 
 
 export const QUERY_USER_JOBS = gql`
-  query userJobs($userID: ID!) {
-    getUserJobs(userID: $userID) {
+  query userJobs {
+    getUserJobs {
       name
       description
       skills
       city
       needDate
-      createdDate
-      reviews
     }
   }
 `;
 
 export const QUERY_USER_PROPOSALS = gql`
-  query userProposals($userID: ID!) {
-    getUserProposals(userID: $userID) {
+  query userProposals {
+    getUserProposals {
       name
-      description
       costEstimate
       startEstimate
       timeFrame
-      user
-      job
     }
   }
 `;
