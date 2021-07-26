@@ -82,12 +82,12 @@ const ManageJob = () => {
     }
 
     return (
-        <section className="p-2">
+        <section className="p-2 manage-job">
             <div className="card m-2">
                 <div className="card-header">{job.name}</div>
                 <div className="card-body p-4">
                 <h3>Requested Date of Completion</h3>
-                <p>{dateConverter(job.needDate)}</p>
+                <p>{job.needDate ? dateConverter(job.needDate) : "None specified"}</p>
                 <h3>Description</h3>
                 <p>{job.description}</p>
                 <h3>Location</h3>
@@ -119,7 +119,6 @@ const ManageJob = () => {
             <h2>Proposals</h2>
             {proposalCards}
         </section>
-        
     );
 }
 
