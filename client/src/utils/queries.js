@@ -9,20 +9,13 @@ export const QUERY_PROFILES = gql`
   }
 `;
 
-//This is the section I'm working in
-export const QUERY_SINGLE_PROFILE = gql`
-query singleProfile {
+export const QUERY_USER = gql`
+query getUser {
     getUser {
-      userType
       firstName
       lastName
       email
       city
-      reviews {
-        reviewText
-        reviewAuthor
-        createdAt
-      }
     }
   }
 `;
