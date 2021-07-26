@@ -113,3 +113,15 @@ export const QUERY_USER_PROPOSALS = gql`
     }
   }
 `;
+
+export const CONTRACTOR_PROFILE = gql`
+query contractorProfile {
+    getUser {
+      reviews {
+        reviewText
+        reviewAuthor
+        createdAt
+      }
+    }
+  }
+`;
