@@ -90,19 +90,20 @@ export const QUERY_ALL_JOBS = gql`
         name
       }
       proposal {
-        prososal.length
+        proposal
       }
     }
   }
 `;
 
-export const QUERY_ALL_PROPOSALS = gql`
+// export const QUERY_ALL_PROPOSALS = gql`
 
-`;
+// `;
 
-export const QUERY_PROPOSAL = gql`
+// export const QUERY_PROPOSAL = gql`
 
-`;
+// `;
+
 export const QUERY_USER_PROPOSALS = gql`
   query userProposals {
     getUserProposals {
