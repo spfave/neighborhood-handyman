@@ -29,6 +29,14 @@ export const ADD_JOB = gql`
   }
 `;
 
+export const DELETE_JOB = gql`
+  mutation deleteJob($jobId: ID!) {
+    deleteJob(jobId: $jobId) {
+      name
+    }
+  }
+`;
+
 export const ADD_PROPOSAL = gql`
   mutation createProposal($newProposal: ProposalInput!) {
     createProposal(newProposal: $newProposal) {
@@ -38,6 +46,14 @@ export const ADD_PROPOSAL = gql`
       costEstimate
       startEstimate
       timeFrame
+    }
+  }
+`;
+
+export const DELETE_PROPOSAL = gql`
+  mutation deleteProposal($proposalId: ID!) {
+    deleteProposal(proposalId: $proposalId) {
+      name
     }
   }
 `;
