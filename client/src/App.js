@@ -50,7 +50,7 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         {Auth.loggedIn() ? (
           <div className="App">
             <Header />
@@ -66,7 +66,10 @@ export default function App() {
               <Route exact path="/createProposal" component={CreateProposal} />
               <Switch>
                 <Route path="/manageJob/:jobID" children={<ManageJob />} />
-                <Route path="/manageProposal/:proposalID" children={<ManageProposal />} />
+                <Route
+                  path="/manageProposal/:proposalID"
+                  children={<ManageProposal />}
+                />
               </Switch>
             </section>
             <Footer />
