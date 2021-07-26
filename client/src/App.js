@@ -22,6 +22,7 @@ import SignUp from './pages/SignUp';
 import CreateJob from './pages/CreateJob';
 import CreateProposal from './pages/CreateProposal';
 import ManageJob from './pages/ManageJob';
+import ManageProposal from './pages/ManageProposal';
 // import JobList from './pages/JobList';
 
 const httpLink = createHttpLink({
@@ -54,7 +55,7 @@ export default function App() {
           <div className="App">
             <Header />
             <section className="content">
-              {/* Catch all for any URLs not under Routes */}
+              {/* Set default page to Dashboard */}
               <Route exact path="/">
                 <Redirect to="/dashboard" />
               </Route>
@@ -65,6 +66,7 @@ export default function App() {
               <Route exact path="/createProposal" component={CreateProposal} />
               <Switch>
                 <Route path="/manageJob/:jobID" children={<ManageJob />} />
+                <Route path="/manageProposal/:proposalID" children={<ManageProposal />} />
               </Switch>
             </section>
             <Footer />
