@@ -14,7 +14,7 @@ const ProposalCard = props => {
                             Estimated Start Date: {dateConverter(proposal.startEstimate)}
                         </li>
                         <li>
-                            Time Frame: {proposal.timeFrame}
+                            Time Frame: {proposal.timeFrame} days
                         </li>
                     </ul>
                 </div>
