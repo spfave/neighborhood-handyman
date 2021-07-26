@@ -49,3 +49,11 @@ export const ADD_PROPOSAL = gql`
     }
   }
 `;
+
+export const DELETE_PROPOSAL = gql`
+  mutation deleteProposal($proposalId: ID!) {
+    deleteProposal(proposalId: $proposalId) {
+      name
+    }
+  }
+`;
