@@ -141,13 +141,39 @@ export const QUERY_ALL_JOBS = gql`
 
 // `;
 
+// Used in Dashboard
 export const QUERY_USER_PROPOSALS = gql`
   query userProposals {
     getUserProposals {
+      _id
       name
       costEstimate
       startEstimate
       timeFrame
+    }
+  }
+`;
+
+// Used in ManageProposal
+export const QUERY_USER_PROPOSAL = gql`
+  query getProposal($proposalID: ID!) {
+    getProposal(proposalID: $proposalID) {
+      description
+      costEstimate
+      startEstimate
+      timeFrame
+      job {
+        _id
+        name
+        description
+        skills
+        city
+        needDate
+        user {
+          firstName
+          lastName
+        }
+      }
     }
   }
 `;
