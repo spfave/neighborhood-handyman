@@ -8,17 +8,19 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries';
 import { QUERY_ALL_JOBS } from '../utils/queries';
 
-export default function jobList() {
-    const { data } = useQuery(QUERY_USER)
-    let user;
+// Commented out to prevent errors that were preventing app from launching
 
-    if (data) {
-        user = data.user;
-    }
+// export default function jobList() {
+//     const { data } = useQuery(QUERY_USER)
+//     let user;
 
-    return (
-        <>
+//     if (data) {
+//         user = data.user;
+//     }
 
-        </>
-    )
-}
+//     return (
+//         <>
+
+//         </>
+//     )
+// }
