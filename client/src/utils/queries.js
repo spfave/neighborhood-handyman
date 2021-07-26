@@ -44,10 +44,11 @@ query singleProfile {
   }
 `;
 
-
+// Used in Dashboard
 export const QUERY_USER_JOBS = gql`
   query userJobs {
     getUserJobs {
+      _id
       name
       description
       skills
@@ -57,9 +58,39 @@ export const QUERY_USER_JOBS = gql`
   }
 `;
 
+// Used in ManageJob
+export const QUERY_USER_JOB = gql`
+  query getJob($jobID: ID!) {
+    getJob(jobID: $jobID) {
+      name
+      description
+      skills
+      city
+      needDate
+    }
+  }
+`;
+
+// Used in ManageJob
+export const QUERY_USER_JOB_PROPOSALS = gql`
+  query getJobProposals($jobID: ID!) {
+    getJobProposals(jobID: $jobID) {
+      name
+      description
+      costEstimate
+      startEstimate
+      timeFrame
+      user {
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+
 export const QUERY_JOB = gql`
-  query getJob($user: ID, $proposal: ID) {
-    job(user: $user, proposal: $proposal) {
+  query getJob($jobID: ID!) {
+    job(jobID: $jobID) {
       _id
       name
       description
@@ -72,6 +103,12 @@ export const QUERY_JOB = gql`
       }
       proposal {
         name
+        description
+        costEstimate
+        startEstimate
+        timeFrame
+        user
+        job
       }
     }
   }
