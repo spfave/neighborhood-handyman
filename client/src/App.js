@@ -1,5 +1,5 @@
 // Package imports
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -21,7 +21,13 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import CreateJob from './pages/CreateJob';
 import CreateProposal from './pages/CreateProposal';
+<<<<<<< HEAD
 import SearchProfile from './pages/ContractorProfile';
+=======
+import ManageJob from './pages/ManageJob';
+import ManageProposal from './pages/ManageProposal';
+// import JobList from './pages/JobList';
+>>>>>>> main
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -53,16 +59,23 @@ export default function App() {
           <div className="App">
             <Header />
             <section className="content">
-              {/* Catch all for any URLs not under Routes */}
-              <Route path="/">
+              {/* Set default page to Dashboard */}
+              <Route exact path="/">
                 <Redirect to="/dashboard" />
               </Route>
               <Route exact path="/account" component={Account} />
               <Route exact path="/dashboard" component={Dashboard} />
-              {/* <Route exact path="/listings" component={JobListings} /> */}
+              {/* <Route exact path="/listings" component={JobList} /> */}
               <Route exact path="/createJob" component={CreateJob} />
               <Route exact path="/createProposal" component={CreateProposal} />
+<<<<<<< HEAD
               <Route exact path="/contractorProfile" component={SearchProfile} />
+=======
+              <Switch>
+                <Route path="/manageJob/:jobID" children={<ManageJob />} />
+                <Route path="/manageProposal/:proposalID" children={<ManageProposal />} />
+              </Switch>
+>>>>>>> main
             </section>
             <Footer />
           </div>

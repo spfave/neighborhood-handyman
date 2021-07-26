@@ -5,3 +5,8 @@
 .card h4 {
     font-size: 100%;
 }
+
+.manage-link {
+    color: #000;
+    text-decoration: none;
+}
