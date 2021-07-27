@@ -100,6 +100,7 @@ export const QUERY_JOB = gql`
 export const QUERY_ALL_JOBS = gql`
 query getJobs {
   getJobs {
+    _id
     name
     description
     skills
