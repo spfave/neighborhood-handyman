@@ -19,6 +19,10 @@
     border-radius: 10px;
 }
 
+.header i {
+    color: #000;
+}
+
 .active {
     background-color: #0099FF;
 }
