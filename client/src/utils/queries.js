@@ -1,16 +1,16 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_PROFILES = gql`
-  query allProfiles {
-    profiles {
-      _id
-      name
-    }
-  }
-`;
+// export const QUERY_PROFILES = gql`
+//   query allProfiles {
+//     profiles {
+//       _id
+//       name
+//     }
+//   }
+// `;
 
 export const QUERY_USER = gql`
-query getUser {
+  query getUser {
     getUser {
       firstName
       lastName
@@ -20,22 +20,22 @@ query getUser {
   }
 `;
 
-export const QUERY_ME = gql`
-query singleProfile {
-    getUser {
-      userType
-      firstName
-      lastName
-      email
-      city
-      reviews {
-        reviewText
-        reviewAuthor
-        createdAt
-      }
-    }
-  }
-`;
+// export const QUERY_ME = gql`
+//   query singleProfile {
+//     getUser {
+//       userType
+//       firstName
+//       lastName
+//       email
+//       city
+//       reviews {
+//         reviewText
+//         reviewAuthor
+//         createdAt
+//       }
+//     }
+//   }
+// `;
 
 // Used in Dashboard
 export const QUERY_USER_JOBS = gql`
@@ -83,25 +83,15 @@ export const QUERY_USER_JOB_PROPOSALS = gql`
 
 export const QUERY_JOB = gql`
   query getJob($jobID: ID!) {
-    job(jobID: $jobID) {
+    getJob(jobID: $jobID) {
       _id
       name
       description
       skills
       city
       needDate
-      createdDate
       user {
         _id
-      }
-      proposal {
-        name
-        description
-        costEstimate
-        startEstimate
-        timeFrame
-        user
-        job
       }
     }
   }
