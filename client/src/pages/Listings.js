@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import { Button, Card } from 'react-bootstrap';
-import dateFormat from 'dateformat';
+import { Button } from 'react-bootstrap';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_USER } from '../utils/queries';
 import { QUERY_ALL_JOBS } from '../utils/queries';
-import Auth from '../utils/auth';
-import JobCard from '../components/JobCard';
+import dateConverter from '../utils/dateConverter';
+
 
 export default function Listings() {
   const allJobs = useQuery(QUERY_ALL_JOBS);
@@ -20,11 +18,41 @@ export default function Listings() {
 
   console.log(allJobs);
 
-  const user = Auth.getUser();
 
-  return (
-    <>
-      <h1></h1>
-    </>
-  );
-}
+  const jobs = allJobs.data.getJobs;
+  // const users = allJobs.data.getJobs.user;
+
+  const cards = jobs.map((job, index) => {
+    return (
+        <div className="card m-2 job-card" key={index}>
+          <div className="card-header">{job.name}</div>
+          <div className="card-body p-4">
+            <h4>User</h4>
+            <p>{job.user.firstName} {job.user.lastName}</p>
+            <h4>Requested Date</h4>
+            <p>{job.needDate ? dateConverter(job.needDate) : 'None specified'}</p>
+            <h4>Location</h4>
+            <p>{job.city}</p>
+            <h4>Description</h4>
+            <p>{job.description ? job.description : 'None Specified'}</p>
+            {job.skills.length === 0 ? (
+              // Return nothing if the skills array is empty
+              ''
+            ) : (
+              <>
+                <h4>Skills Needed</h4>
+                <ul>
+                  {job.skills.map((skill, index) => {
+                    return <li key={index}>{skill}</li>;
+                  })}
+                </ul>
+              </>
+            )}
+            <Button>Submit Proposal</Button>
+          </div>
+        </div>
+    );
+  });
+  return cards
+};
+

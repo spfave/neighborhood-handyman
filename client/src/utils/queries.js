@@ -98,22 +98,19 @@ export const QUERY_JOB = gql`
 `;
 
 export const QUERY_ALL_JOBS = gql`
-  query getAllJobs {
-    Job {
-      name
-      description
-      skills
-      city
-      needDate
-      createdDate
-      user {
-        name
-      }
-      proposal {
-        proposal
-      }
+query getJobs {
+  getJobs {
+    name
+    description
+    skills
+    city
+    needDate
+    user {
+      firstName
+      lastName
     }
   }
+}
 `;
 
 export const QUERY_USER_PROPOSALS = gql`

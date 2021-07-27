@@ -11,17 +11,10 @@ const Account = () => {
     return <div>Loading...</div>
   }
 
-<<<<<<< HEAD
-  return (
-    <div>
-      <h2 className="card-header">
-        {profileId ? `${profile.name}'s` : 'Your Profile page'}
-      </h2>
-      )
-=======
+
+
   // Simplify variables
   const user = data.getUser;
->>>>>>> 98fa4f2609c4232ff2b4dcf90cd8ecdfd8621da7
 
   return (
     <section className="account m-2 container">
