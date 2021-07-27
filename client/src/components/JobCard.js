@@ -4,8 +4,8 @@ import dateConverter from '../utils/dateConverter';
 const JobCard = (props) => {
   const cards = props.jobs.map((job, index) => {
     return (
-      <Link to={`/manageJob/${job._id}`} className="manage-link">
-        <div className="card m-2 job-card" key={index}>
+      <Link to={`/manageJob/${job._id}`} className="manage-link" key={index}>
+        <div className="card my-3 job-card">
           <div className="card-header">{job.name}</div>
           <div className="card-body p-4">
             <h4>Requested Date</h4>

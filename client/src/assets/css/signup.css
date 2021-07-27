@@ -1,3 +1,7 @@
-i {
+.signup i.fa-hammer {
+    color: #000;
+}
+
+.signup i.fa-check-square {
     color: green;
 }

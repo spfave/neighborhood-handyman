@@ -2,8 +2,8 @@ import "../assets/css/footer.css";
 
 export default function Footer() {
     return (
-        <footer>
-            <h3>Built with love by Group 1</h3>
+        <footer className="mt-5">
+            <h4>&copy; 2021 Sebastian Fave, Elizabeth De Santis, Stephanie Davis, Stephen Roddewig</h4>
         </footer>
     )
 }

@@ -43,72 +43,29 @@ const Login = (props) => {
   };
 
   return (
-    <div className="card m-2">
-      <Form onSubmit={handleFormSubmit} className="m-4">
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control autoFocus name="email" type="text" value={formState.email} onChange={handleChange}
-          />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control autoFocus name="password" type="password" value={formState.password} onChange={handleChange}
-          />
-        </Form.Group>
-        <Button block size="lg" type="submit" className="mt-3 mb-2">Log In</Button>
-      </Form>
-      <p className="mx-4">Need to create an account? <Link to="/signup">Sign up</Link>.</p>
-    </div>
+    <section className="m-2 mx-sm-5 login">
+      <h1 className="mb-3"><i className="fas fa-hammer"></i> Neighborhood Handyman</h1>
+      <div className="card">
+        <Form onSubmit={handleFormSubmit} className="m-4">
+          <h2 className="mb-3">Log In</h2>
+          <Form.Group size="lg" controlId="email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control autoFocus name="email" type="text" value={formState.email} onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group size="lg" controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control autoFocus name="password" type="password" value={formState.password} onChange={handleChange}
+            />
+          </Form.Group>
+          <Button block size="lg" type="submit" className="mt-3 mb-2">Log In</Button>
+        </Form>
+        <p className="mx-4">Need to create an account? <Link to="/signup">Sign up</Link>.</p>
+      </div>
+    </section>
   )
 }
-//     <main className="flex-row justify-center mb-4">
-//       <div className="col-12 col-lg-10">
-//         <div className="card">
-//           <h2 className="card-header bg-dark text-light p-2">Login</h2>
-//           <div className="card-body">
-//             {data ? (
-//               <p>
-//                 Success! You may now head{' '}
-//                 <Link to="/">back to the homepage.</Link>
-//               </p>
-//             ) : (
-//               <form onSubmit={handleFormSubmit}>
-//                 <input
-//                   className="form-input"
-//                   placeholder="Your email"
-//                   name="email"
-//                   type="email"
-//                   value={formState.email}
-//                   onChange={handleChange}
-//                 />
-//                 <input
-//                   className="form-input"
-//                   placeholder="******"
-//                   name="password"
-//                   type="password"
-//                   value={formState.password}
-//                   onChange={handleChange}
-//                 />
-//                 <button
-//                   className="btn btn-block btn-info"
-//                   style={{ cursor: 'pointer' }}
-//                   type="submit"
-//                 >
-//                   Submit
-//                 </button>
-//               </form>
-//             )}
-
-//             {error && (
-//               <div className="my-3 p-3 bg-danger text-white">
-//                 {error.message}
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     </main>
-//   );
-// };
 
 export default Login
+
+// Built with inspiration from https://serverless-stack.com/chapters/create-a-login-page.html
