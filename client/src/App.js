@@ -69,12 +69,13 @@ export default function App() {
                 <Route exact path="/job/:jobID" component={EditJob} />
                 <Route
                   exact
-                  path="/createProposal"
+                  path="/createProposal/:jobID"
                   component={CreateProposal}
                 />
                 <Switch>
                   <Route path="/manageJob/:jobID" children={<ManageJob />} />
                   <Route
+                    exact
                     path="/manageProposal/:proposalID"
                     children={<ManageProposal />}
                   />
