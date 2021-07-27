@@ -36,7 +36,7 @@ See [server package.json](./server/package.json) and [client package.json](./cli
 
 ## Contributors
 - Sebastian Fave ([sfave](https://github.com/spfave))
-- Elizabeth De Santel ([desantel](https://github.com/desantel))
+- Elizabeth De Santis ([desantel](https://github.com/desantel))
 - Stephanie Davis ([whatawhat](https://github.com/whatawhat))
 - Stephen Roddewig ([Captain63](https://github.com/Captain63))
 

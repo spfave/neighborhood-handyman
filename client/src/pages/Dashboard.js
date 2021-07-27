@@ -39,8 +39,8 @@ export default function Dashboard() {
         <div className="col-md-6">
           <h3>Your Jobs</h3>
           {/* Set up route */}
-          <Link className="btn btn-primary" to="/createJob">
-            Create New Job
+          <Link className="btn btn-success" to="/createJob">
+            <strong>Create New Job</strong>
           </Link>
           {/* <button>Request Help</button> */}
           {

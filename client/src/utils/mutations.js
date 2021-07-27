@@ -29,6 +29,19 @@ export const ADD_JOB = gql`
   }
 `;
 
+export const EDIT_JOB = gql`
+  mutation editJob($jobID: ID!, $updateJob: JobInput!) {
+    editJob(jobID: $jobID, updateJob: $updateJob) {
+      _id
+      name
+      description
+      skills
+      city
+      needDate
+    }
+  }
+`;
+
 export const DELETE_JOB = gql`
   mutation deleteJob($jobId: ID!) {
     deleteJob(jobId: $jobId) {

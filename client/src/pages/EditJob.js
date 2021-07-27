@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import dateFormat from 'dateformat';
 
-import { useMutation } from '@apollo/client';
-import { ADD_JOB } from '../utils/mutations';
-import Auth from '../utils/auth';
+import { useParams } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_JOB } from '../utils/queries';
+import { EDIT_JOB } from '../utils/mutations';
 
-export default function CreateJob() {
+import Auth from '../utils/auth';
+// import dateConverter from '../utils/dateConverter';
+
+export default function EditJob() {
   // State variables
   const [formState, setFormState] = useState({
     name: '',
@@ -17,6 +21,24 @@ export default function CreateJob() {
     city: '',
     needDate: '',
   });
+
+  const { jobID } = useParams();
+  const { loading, data } = useQuery(QUERY_JOB, { variables: { jobID } });
+  const [editJob, { error }] = useMutation(EDIT_JOB);
+
+  useEffect(() => {
+    if (data) {
+      const jobData = data.getJob;
+
+      setFormState({
+        name: jobData.name,
+        description: jobData.description,
+        skills: jobData.skills,
+        city: jobData.city,
+        needDate: dateFormat(new Date(parseInt(jobData.needDate)), 'isoDate'),
+      });
+    }
+  }, [data]);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -27,16 +49,13 @@ export default function CreateJob() {
     });
   };
 
-  const [addJob, { error }] = useMutation(ADD_JOB);
-
   const handleJobFormSubmit = async (event) => {
     event.preventDefault();
 
     const userID = Auth.getUser().data._id;
-    const newJob = { user: userID, ...formState };
-
+    const updateJob = { user: userID, ...formState };
     try {
-      const { data } = addJob({ variables: { newJob } });
+      const { data } = editJob({ variables: { jobID, updateJob } });
 
       setFormState({
         name: '',
@@ -44,9 +63,8 @@ export default function CreateJob() {
         city: '',
         needDate: '',
       });
-      
-      // Send user back to dashboard
-      window.location.replace("/dashboard");
+
+      window.location.replace('/dashboard');
     } catch (error) {
       console.log(error);
     }
@@ -56,6 +74,8 @@ export default function CreateJob() {
   const validate = () => {
     return formState.name.length > 0 && formState.city.length > 0;
   };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="container">
@@ -103,7 +123,7 @@ export default function CreateJob() {
         </Form.Group>
 
         <Button block size="lg" type="submit" disabled={!validate()}>
-          Post Job
+          Update Job
         </Button>
       </Form>
     </div>
