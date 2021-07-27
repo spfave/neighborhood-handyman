@@ -32,7 +32,7 @@ const typeDefs = gql`
     city: String
     needDate: String
     user: User
-    status: [String]
+    status: String
   }
 
   input JobInput {
@@ -53,7 +53,7 @@ const typeDefs = gql`
     timeFrame: Int
     user: User
     job: Job
-    status: [String]
+    status: String
   }
 
   input ProposalInput {

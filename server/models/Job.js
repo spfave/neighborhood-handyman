@@ -36,6 +36,10 @@ const jobSchema = new Schema({
     ref: 'User',
     required: true,
   },
+  status: {
+    type:String,
+    default: 'Open',
+  },
 });
 
 const Job = mongoose.model('Job', jobSchema);
