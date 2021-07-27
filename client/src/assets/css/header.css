@@ -1,3 +1,7 @@
+.header nav {
+    width: fit-content;
+}
+
 .header ul li {
     display: inline;
     list-style-type: none;
@@ -19,6 +23,52 @@
     border-radius: 10px;
 }
 
-.active {
+.header i {
+    color: #000;
+}
+
+.header .active {
     background-color: #0099FF;
+}
+
+.header #logout {
+    background-color: red;
+    color: #fff;
+    margin: 12px;
+    border-radius: 10px;
+    padding: 6px;
+    font-weight: 700;
+    transition: opacity 0.25s;
+    border: none
+}
+
+.header #logout:hover {
+    opacity: 0.75;
+}
+
+.header #home-link {
+    text-decoration: none;
+    color: #000;
+    transition: opacity 0.25s;
+}
+
+.header #home-link:hover {
+    opacity: 0.75;
+}
+
+/* Turns navbar vertical for mobile screens */
+@media only screen and (max-width: 550px) {
+    .header nav {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .header ul li {
+        display: block;
+        width: 100%;
+    }
+
+    .header ul li a {
+        width: 100%;
+    }
 }

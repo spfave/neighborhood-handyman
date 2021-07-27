@@ -4,8 +4,8 @@ import dateConverter from "../utils/dateConverter";
 const ProposalCard = props => {
     const cards = props.proposals.map((proposal, index) => {
         return(
-            <Link to={`/manageProposal/${proposal._id}`} className="manage-link">
-                <div className="card m-2 proposal-card" key={index}>
+            <Link to={`/manageProposal/${proposal._id}`} className="manage-link" key={index}>
+                <div className="card my-2 proposal-card">
                     <div className="card-header">{proposal.name}</div>
                     <div className="card-body p-2">
                         <ul>
