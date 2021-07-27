@@ -1,8 +1,6 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  scalar Date
-
   type User {
     _id: ID!
     firstName: String
@@ -23,7 +21,7 @@ const typeDefs = gql`
   type Review {
     reviewText: String
     reviewAuthor: String
-    createdAt: Date
+    createdAt: String
   }
 
   type Job {
@@ -32,7 +30,7 @@ const typeDefs = gql`
     description: String
     skills: [String]
     city: String
-    needDate: Date
+    needDate: String
     user: User
   }
 
@@ -41,7 +39,7 @@ const typeDefs = gql`
     description: String
     skills: [String]
     city: String
-    needDate: Date
+    needDate: String
     user: ID
   }
 
@@ -50,7 +48,7 @@ const typeDefs = gql`
     name: String
     description: String
     costEstimate: Float
-    startEstimate: Date
+    startEstimate: String
     timeFrame: Int
     user: User
     job: Job
@@ -60,7 +58,7 @@ const typeDefs = gql`
     name: String
     description: String
     costEstimate: Float
-    startEstimate: Date
+    startEstimate: String
     timeFrame: Int
     user: ID
     job: ID
