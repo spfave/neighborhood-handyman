@@ -72,81 +72,86 @@ export default function SignUp() {
             formState.firstName.length > 0 &&
             formState.lastName.length > 0 &&
             formState.email.length > 0 && 
-            formState.password.length > 8 &&
+            formState.password.length > 7 &&
             formState.city.length > 0
         )
     }
 
     return (
-        <div className="card m-2">
-            <Form onSubmit={handleFormSubmit} className="m-4">
-                <Form.Group size="lg" controlId="firstName">
-                    <Form.Label>First Name</Form.Label>
-                    <Form.Control
-                        autoFocus
-                        name="firstName"
-                        type="text"
-                        value={formState.firstName}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
+        <section className="m-2 mx-sm-5 signup">
+            <h1 className="mb-3"><i className="fas fa-hammer"></i> Neighborhood Handyman</h1>
+            <div className="card">
+                <Form onSubmit={handleFormSubmit} className="m-4">
+                    <h2 className="mb-3">Create Your Account</h2>
+                    <Form.Group size="lg" controlId="firstName">
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control
+                            autoFocus
+                            name="firstName"
+                            type="text"
+                            value={formState.firstName}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
 
-                <Form.Group size="lg" controlId="lastName">
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control
-                        autoFocus
-                        name="lastName"
-                        type="text"
-                        value={formState.lastName}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
+                    <Form.Group size="lg" controlId="lastName">
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control
+                            autoFocus
+                            name="lastName"
+                            type="text"
+                            value={formState.lastName}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
 
-                <Form.Group size="lg" controlId="email">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        autoFocus
-                        name="email"
-                        type="email"
-                        value={formState.email}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
+                    <Form.Group size="lg" controlId="email">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control
+                            autoFocus
+                            name="email"
+                            type="email"
+                            value={formState.email}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
 
-                <Form.Group size="lg" controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        autoFocus
-                        name="password"
-                        type="password"
-                        value={formState.password}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
+                    <Form.Group size="lg" controlId="password">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                            autoFocus
+                            name="password"
+                            type="password"
+                            value={formState.password}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
 
-                <p>
-                    {/* Font awesome icon class name updates symbol shown */}
-                    <i className={isValidLength ? "fas fa-check-square" : ""}></i> Password must be 8 characters long
-                </p>
+                    <p>
+                        {/* Font awesome icon class name updates symbol shown */}
+                        <i className={isValidLength ? "fas fa-check-square" : ""}></i> Password must be 8 characters long
+                    </p>
 
-                <Form.Group size="lg" controlId="city">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control
-                        autoFocus
-                        name="city"
-                        type="city"
-                        value={formState.city}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
+                    <Form.Group size="lg" controlId="city">
+                        <Form.Label>City</Form.Label>
+                        <Form.Control
+                            autoFocus
+                            name="city"
+                            type="city"
+                            value={formState.city}
+                            onChange={handleChange}
+                        />
+                    </Form.Group>
 
-                <Button block size="lg" type="submit" disabled={!validate()} className="mt-3 mb-2">
-                    Sign Up
-                </Button>
-            </Form>
+                    <Button block size="lg" type="submit" disabled={!validate()} className="mt-3 mb-2">
+                        Sign Up
+                    </Button>
+                </Form>
 
-            <p className="mx-4">Already have an account? <Link to="/login">Log in</Link>.</p>
-        </div>
+                <p className="mx-4">Already have an account? <Link to="/login">Log in</Link>.</p>
+            </div>
+        </section>
+        
     )
 }
 
