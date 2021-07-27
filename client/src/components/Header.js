@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import "../assets/css/header.css";
 
@@ -18,8 +19,10 @@ const navLinks = [
 
 export default function Header() {
     return ( 
-        <header className="header m-2">
-            <h1><i class="fas fa-hammer"></i> Neighborhood Handyman</h1>   
+        <header className="header">
+            <Link to="/" id="home-link">
+                <h1 className="mb-4"><i className="fas fa-hammer"></i> Neighborhood Handyman</h1>
+            </Link>
             <Nav links={navLinks} />             
         </header>
     )
