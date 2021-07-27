@@ -64,10 +64,14 @@ export default function App() {
                 </Route>
                 <Route exact path="/account" component={Account} />
                 <Route exact path="/dashboard" component={Dashboard} />
-                {/* <Route exact path="/listings" component={JobList} /> */}
+                <Route exact path="/listings" component={Listings} />
                 <Route exact path="/createJob" component={CreateJob} />
                 <Route exact path="/job/:jobID" component={EditJob} />
-                <Route exact path="/createProposal" component={CreateProposal} />
+                <Route
+                  exact
+                  path="/createProposal"
+                  component={CreateProposal}
+                />
                 <Switch>
                   <Route path="/manageJob/:jobID" children={<ManageJob />} />
                   <Route
@@ -97,4 +101,4 @@ export default function App() {
       </BrowserRouter>
     </ApolloProvider>
   );
-};
+}
