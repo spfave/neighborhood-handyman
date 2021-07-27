@@ -85,8 +85,8 @@ const typeDefs = gql`
     createProposal(newProposal: ProposalInput!): Proposal
     deleteJob(jobId: ID!): Job
     deleteProposal(proposalId: ID!): Proposal
-    editJob(updateJob: JobInput!, jobId: ID!): Job
-    editProposal(updateProp: ProposalInput!, proposalId: ID!): Proposal
+    editJob(jobID: ID!, updateJob: JobInput!): Job
+    editProposal(proposalID: ID!, updateProp: ProposalInput!): Proposal
   }
 `;
 

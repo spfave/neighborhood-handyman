@@ -20,6 +20,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import CreateJob from './pages/CreateJob';
+import EditJob from './pages/EditJob';
 import CreateProposal from './pages/CreateProposal';
 import ManageJob from './pages/ManageJob';
 import ManageProposal from './pages/ManageProposal';
@@ -63,6 +64,7 @@ export default function App() {
               <Route exact path="/dashboard" component={Dashboard} />
               {/* <Route exact path="/listings" component={JobList} /> */}
               <Route exact path="/createJob" component={CreateJob} />
+              <Route exact path="/job/:jobID" component={EditJob} />
               <Route exact path="/createProposal" component={CreateProposal} />
               <Switch>
                 <Route path="/manageJob/:jobID" children={<ManageJob />} />
