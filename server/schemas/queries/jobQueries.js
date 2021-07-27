@@ -18,4 +18,11 @@ async function getJob(parent, { jobID }, context) {
   return job;
 }
 
-module.exports = { getJobs, getJob };
+async function getAllJobs(parent, context) {
+  if (!context.user)
+    throw new AuthenticationError('You need to log in for access');
+
+  const allJobs = await Job.find();
+  return allJobs;
+}
+module.exports = { getJobs, getJob, getAllJobs };

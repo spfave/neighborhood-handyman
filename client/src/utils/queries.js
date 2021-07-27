@@ -98,33 +98,21 @@ export const QUERY_JOB = gql`
 `;
 
 export const QUERY_ALL_JOBS = gql`
-  query getJobs($user: ID, $proposal: ID) {
-    job(user: $user, proposal: $proposal) {
-      name
-      description
-      skills
-      city
-      needDate
-      createdDate
-      user {
-        name
-      }
-      proposal {
-        proposal
-      }
+query getJobs {
+  getJobs {
+    name
+    description
+    skills
+    city
+    needDate
+    user {
+      firstName
+      lastName
     }
   }
+}
 `;
 
-// export const QUERY_ALL_PROPOSALS = gql`
-
-// `;
-
-// export const QUERY_PROPOSAL = gql`
-
-// `;
-
-// Used in Dashboard
 export const QUERY_USER_PROPOSALS = gql`
   query userProposals {
     getUserProposals {
