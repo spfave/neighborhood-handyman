@@ -29,12 +29,13 @@ export default function EditJob() {
   useEffect(() => {
     if (data) {
       const jobData = data.getJob;
+
       setFormState({
         name: jobData.name,
         description: jobData.description,
         skills: jobData.skills,
         city: jobData.city,
-        needDate: dateFormat(Date(jobData.needDate), 'isoDate'),
+        needDate: dateFormat(new Date(parseInt(jobData.needDate)), 'isoDate'),
       });
     }
   }, [data]);
@@ -62,7 +63,8 @@ export default function EditJob() {
         city: '',
         needDate: '',
       });
-      // next steps? direct  back to dashboard?
+
+      window.location.replace('/dashboard');
     } catch (error) {
       console.log(error);
     }
