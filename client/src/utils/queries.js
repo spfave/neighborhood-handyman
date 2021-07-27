@@ -75,26 +75,20 @@ export const QUERY_USER_JOBS = gql`
 //       }
 //     }
 //   }
-// `;
+//`;
 
-// export const QUERY_ALL_JOBS = gql`
-//   query getJobs($user: ID, $proposal: ID) {
-//     getJob(user: $user, proposal: $proposal) {
-//       name
-//       description
-//       skills
-//       city
-//       needDate
-//       createdDate
-//       user {
-//         name
-//       }
-//       proposal {
-//         prososal.length
-//       }
-//     }
-//   }
-// `;
+export const QUERY_ALL_JOBS = gql`
+  query getAllJobs {
+    Job {
+      name
+      description
+      skills
+      city
+      needDate
+      createdDate
+    }
+  }
+`;
 
 export const QUERY_USER_PROPOSALS = gql`
   query userProposals {
