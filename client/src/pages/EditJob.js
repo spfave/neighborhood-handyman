@@ -29,13 +29,16 @@ export default function EditJob() {
   useEffect(() => {
     if (data) {
       const jobData = data.getJob;
+      const dateValue = jobData.needDate
+        ? dateFormat(new Date(parseInt(jobData.needDate)), 'isoDate')
+        : '';
 
       setFormState({
         name: jobData.name,
         description: jobData.description,
         skills: jobData.skills,
         city: jobData.city,
-        needDate: dateFormat(new Date(parseInt(jobData.needDate)), 'isoDate'),
+        needDate: dateValue,
       });
     }
   }, [data]);
