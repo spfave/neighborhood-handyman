@@ -24,7 +24,7 @@ export default function Listings() {
 
   const cards = jobs.map((job, index) => {
     return (
-        <div className="card m-2 job-card" key={index}>
+        <div className="card m-2 job-card" key={job._id}>
           <div className="card-header">{job.name}</div>
           <div className="card-body p-4">
             <h4>User</h4>
