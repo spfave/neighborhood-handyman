@@ -17,7 +17,7 @@ const Nav = props => {
             <ul>
                 {navLinks}
                 <li>
-                    <button onClick={logout}>Log Out</button>
+                    <button onClick={logout} id="logout">Log Out</button>
                 </li>
             </ul>
         </nav>
