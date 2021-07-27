@@ -44,8 +44,8 @@ export default function Dashboard() {
           </Link>
           {/* <button>Request Help</button> */}
           {
-            // Since array doesn't  evaluate to falsy in JavaScript
-            userJobs.data === [] ? (
+            // Since empty array doesn't  evaluate to falsy in JavaScript
+            userJobs.data.getUserJobs.length === 0 ? (
               <p>Awaiting your first job!</p>
             ) : (
               <JobCard jobs={userJobs.data.getUserJobs} />
@@ -57,8 +57,8 @@ export default function Dashboard() {
         <div className="col-md-6">
           <h3>Your Proposals</h3>
           {
-            // Since array doesn't  evaluate to falsy in JavaScript
-            userProposals.data === [] ? (
+            // Since empty array doesn't evaluate to falsy in JavaScript
+            userProposals.data.getUserProposals.length === 0 ? (
               <p>Awaiting your first proposal!</p>
             ) : (
               <ProposalCard proposals={userProposals.data.getUserProposals} />

@@ -1,5 +1,5 @@
 // Package imports
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -20,8 +20,12 @@ import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import CreateJob from './pages/CreateJob';
+import EditJob from './pages/EditJob';
 import CreateProposal from './pages/CreateProposal';
 import Listings from './pages/Listings';
+import ManageJob from './pages/ManageJob';
+import ManageProposal from './pages/ManageProposal';
+// import JobList from './pages/JobList';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -48,23 +52,31 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         {Auth.loggedIn() ? (
           <div className="App">
             <Header />
             <section className="content">
-              {/* Catch all for any URLs not under Routes */}
-              <Route path="/">
+              {/* Set default page to Dashboard */}
+              <Route exact path="/">
                 <Redirect to="/dashboard" />
               </Route>
               <Route exact path="/account" component={Account} />
               <Route exact path="/dashboard" component={Dashboard} />
-              {/* <Route exact path="/listings" component={JobListings} /> */}
+              {/* <Route exact path="/listings" component={JobList} /> */}
               <Route exact path="/createJob" component={CreateJob} />
+              <Route exact path="/job/:jobID" component={EditJob} />
               <Route exact path="/createProposal" component={CreateProposal} />
               <Route exact path="/listings" component={Listings}>
               <Listings />
             </Route>
+              <Switch>
+                <Route path="/manageJob/:jobID" children={<ManageJob />} />
+                <Route
+                  path="/manageProposal/:proposalID"
+                  children={<ManageProposal />}
+                />
+              </Switch>
             </section>
             <Footer />
           </div>

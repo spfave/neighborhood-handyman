@@ -29,6 +29,27 @@ export const ADD_JOB = gql`
   }
 `;
 
+export const EDIT_JOB = gql`
+  mutation editJob($jobID: ID!, $updateJob: JobInput!) {
+    editJob(jobID: $jobID, updateJob: $updateJob) {
+      _id
+      name
+      description
+      skills
+      city
+      needDate
+    }
+  }
+`;
+
+export const DELETE_JOB = gql`
+  mutation deleteJob($jobId: ID!) {
+    deleteJob(jobId: $jobId) {
+      name
+    }
+  }
+`;
+
 export const ADD_PROPOSAL = gql`
   mutation createProposal($newProposal: ProposalInput!) {
     createProposal(newProposal: $newProposal) {
@@ -38,6 +59,14 @@ export const ADD_PROPOSAL = gql`
       costEstimate
       startEstimate
       timeFrame
+    }
+  }
+`;
+
+export const DELETE_PROPOSAL = gql`
+  mutation deleteProposal($proposalId: ID!) {
+    deleteProposal(proposalId: $proposalId) {
+      name
     }
   }
 `;

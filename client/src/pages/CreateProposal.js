@@ -46,7 +46,9 @@ export default function CreateJob({ jobID }) {
         stateEstimate: '',
         timeFrame: '',
       });
-      // next steps? direct  back to dashboard?
+      
+      // Send user back to dashboard
+      window.location.replace("/dashboard");
     } catch (error) {
       console.log(error);
     }

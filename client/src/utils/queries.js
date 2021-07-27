@@ -1,53 +1,47 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_PROFILES = gql`
-  query allProfiles {
-    profiles {
-      _id
-      name
-    }
-  }
-`;
+// export const QUERY_PROFILES = gql`
+//   query allProfiles {
+//     profiles {
+//       _id
+//       name
+//     }
+//   }
+// `;
 
-//This is the section I'm working in
-export const QUERY_SINGLE_PROFILE = gql`
-query singleProfile {
+export const QUERY_USER = gql`
+  query getUser {
     getUser {
-      userType
       firstName
       lastName
       email
       city
-      reviews {
-        reviewText
-        reviewAuthor
-        createdAt
-      }
     }
   }
 `;
 
-export const QUERY_ME = gql`
-query singleProfile {
-    getUser {
-      userType
-      firstName
-      lastName
-      email
-      city
-      reviews {
-        reviewText
-        reviewAuthor
-        createdAt
-      }
-    }
-  }
-`;
+// export const QUERY_ME = gql`
+//   query singleProfile {
+//     getUser {
+//       userType
+//       firstName
+//       lastName
+//       email
+//       city
+//       reviews {
+//         reviewText
+//         reviewAuthor
+//         createdAt
+//       }
+//     }
+//   }
+// `;
 
-
+// Used in Dashboard
 export const QUERY_USER_JOBS = gql`
   query userJobs {
     getUserJobs {
+      _id
       name
       description
       skills
@@ -57,25 +51,51 @@ export const QUERY_USER_JOBS = gql`
   }
 `;
 
-// export const QUERY_JOB = gql`
-//   query getJob($user: ID, $proposal: ID) {
-//     getJob(user: $user, proposal: $proposal) {
-//       _id
-//       name
-//       description
-//       skills
-//       city
-//       needDate
-//       createdDate
-//       user {
-//         _id
-//       }
-//       proposal {
-//         name
-//       }
-//     }
-//   }
-//`;
+// Used in ManageJob
+export const QUERY_USER_JOB = gql`
+  query getJob($jobID: ID!) {
+    getJob(jobID: $jobID) {
+      name
+      description
+      skills
+      city
+      needDate
+    }
+  }
+`;
+
+// Used in ManageJob
+export const QUERY_USER_JOB_PROPOSALS = gql`
+  query getJobProposals($jobID: ID!) {
+    getJobProposals(jobID: $jobID) {
+      name
+      description
+      costEstimate
+      startEstimate
+      timeFrame
+      user {
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+
+export const QUERY_JOB = gql`
+  query getJob($jobID: ID!) {
+    getJob(jobID: $jobID) {
+      _id
+      name
+      description
+      skills
+      city
+      needDate
+      user {
+        _id
+      }
+    }
+  }
+`;
 
 export const QUERY_ALL_JOBS = gql`
   query getAllJobs {
@@ -86,6 +106,12 @@ export const QUERY_ALL_JOBS = gql`
       city
       needDate
       createdDate
+      user {
+        name
+      }
+      proposal {
+        proposal
+      }
     }
   }
 `;
@@ -93,10 +119,35 @@ export const QUERY_ALL_JOBS = gql`
 export const QUERY_USER_PROPOSALS = gql`
   query userProposals {
     getUserProposals {
+      _id
       name
       costEstimate
       startEstimate
       timeFrame
+    }
+  }
+`;
+
+// Used in ManageProposal
+export const QUERY_USER_PROPOSAL = gql`
+  query getProposal($proposalID: ID!) {
+    getProposal(proposalID: $proposalID) {
+      description
+      costEstimate
+      startEstimate
+      timeFrame
+      job {
+        _id
+        name
+        description
+        skills
+        city
+        needDate
+        user {
+          firstName
+          lastName
+        }
+      }
     }
   }
 `;

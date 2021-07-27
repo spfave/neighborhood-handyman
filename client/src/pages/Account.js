@@ -1,56 +1,46 @@
-//import React, { useState } from "react";
-//import { Link } from 'react-router-dom';
-//import { useMutation } from '@apollo/client';
-//import Form from "react-bootstrap/Form";
-//import Button from "react-bootstrap/Button";
-//import { LOGIN_USER } from '../utils/mutations';
-//import Auth from '../utils/auth';
-//import "../assets/css/login.css"
-
-
-import React from "react";
-import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import { QUERY_SINGLE_PROFILE, QUERY_ME } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
 
-import Auth from '../utils/auth';
+import "../assets/css/account.css";
 
 const Account = () => {
-  const { profileId } = useParams();
-
-  // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
-  const { loading, data } = useQuery(
-    profileId ? QUERY_SINGLE_PROFILE : QUERY_ME,
-    {
-      variables: { profileId: profileId },
-    }
-  );
-
-  // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
-  const profile = data?.me || data?.profile || {};
-
-  // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
-//   if (Auth.loggedIn() && Auth.getProfile().data._id === profileId) {
-//     return <Redirect to="/account" />;
-//   }
+  const { data, loading } = useQuery(QUERY_USER);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
+<<<<<<< HEAD
   return (
     <div>
       <h2 className="card-header">
         {profileId ? `${profile.name}'s` : 'Your Profile page'}
       </h2>
       )
+=======
+  // Simplify variables
+  const user = data.getUser;
+>>>>>>> 98fa4f2609c4232ff2b4dcf90cd8ecdfd8621da7
 
-      <div className="my-4 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        
+  return (
+    <section className="account m-2 container">
+      <div className="row">
+        <div className="col-sm-6">
+          <h3>First Name</h3>
+          <p>{user.firstName}</p>
+          <h3>Last Name</h3>
+          <p>{user.lastName}</p>
+        </div>
+        <div className="col-sm-6">
+          <h3>Email</h3>
+          <p><a href={`mailto:${user.email}`}>{user.email}</a></p>
+          <h3>City</h3>
+          <p>{user.city}</p>
+        </div>
       </div>
-    </div>
-  );
-};
+    </section>
+  )
+}
 
 export default Account;
