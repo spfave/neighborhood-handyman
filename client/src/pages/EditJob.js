@@ -9,8 +9,8 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_JOB } from '../utils/queries';
 import { EDIT_JOB } from '../utils/mutations';
 
-// import Auth from '../utils/auth';
-import dateConverter from '../utils/dateConverter';
+import Auth from '../utils/auth';
+// import dateConverter from '../utils/dateConverter';
 
 export default function EditJob() {
   // State variables
@@ -34,7 +34,7 @@ export default function EditJob() {
         description: jobData.description,
         skills: jobData.skills,
         city: jobData.city,
-        needDate: dateConverter(jobData.needDate),
+        needDate: dateFormat(Date(jobData.needDate), 'isoDate'),
       });
     }
   }, [data]);
@@ -51,9 +51,10 @@ export default function EditJob() {
   const handleJobFormSubmit = async (event) => {
     event.preventDefault();
 
-    const updateJob = { jobID, ...formState };
+    const userID = Auth.getUser().data._id;
+    const updateJob = { user: userID, ...formState };
     try {
-      const { data } = editJob({ variables: { updateJob } });
+      const { data } = editJob({ variables: { jobID, updateJob } });
 
       setFormState({
         name: '',
@@ -120,7 +121,7 @@ export default function EditJob() {
         </Form.Group>
 
         <Button block size="lg" type="submit" disabled={!validate()}>
-          Post Job
+          Update Job
         </Button>
       </Form>
     </div>
