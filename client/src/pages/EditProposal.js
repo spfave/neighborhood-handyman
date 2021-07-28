@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import dateFormat from 'dateformat';
 
-import { useMutation } from '@apollo/client';
-import { ADD_PROPOSAL } from '../utils/mutations';
+import { useParams } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_USER_PROPOSAL } from '../utils/queries';
+import { EDIT_PROPOSAL } from '../utils/mutations';
+
 import Auth from '../utils/auth';
 
-export default function CreateJob() {
-  const { jobID } = useParams();
-
+export default function EditProposal() {
   // State variables
   const [formState, setFormState] = useState({
     name: '',
@@ -20,6 +20,29 @@ export default function CreateJob() {
     startEstimate: '',
     timeFrame: '',
   });
+
+  const { proposalID } = useParams();
+  const { loading, data } = useQuery(QUERY_USER_PROPOSAL, {
+    variables: { proposalID },
+  });
+  const [editProposal, { error }] = useMutation(EDIT_PROPOSAL);
+
+  useEffect(() => {
+    if (data) {
+      const proposalData = data.getProposal;
+      const dateValue = proposalData.startEstimate
+        ? dateFormat(new Date(parseInt(proposalData.startEstimate)), 'isoDate')
+        : '';
+
+      setFormState({
+        name: proposalData.name,
+        description: proposalData.description,
+        costEstimate: proposalData.costEstimate,
+        startEstimate: dateValue,
+        timeFrame: proposalData.timeFrame,
+      });
+    }
+  }, [data]);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -30,22 +53,18 @@ export default function CreateJob() {
     });
   };
 
-  const [addProposal, { error }] = useMutation(ADD_PROPOSAL);
-
   const handleProposalFormSubmit = async (event) => {
     event.preventDefault();
 
     const userID = Auth.getUser().data._id;
-    const newProposal = {
+    const updateProp = {
       user: userID,
-      job: jobID,
       ...formState,
       costEstimate: parseFloat(formState.costEstimate),
       timeFrame: parseInt(formState.timeFrame),
     };
-
     try {
-      const { data } = addProposal({ variables: { newProposal } });
+      const { data } = editProposal({ variables: { proposalID, updateProp } });
 
       setFormState({
         name: '',
@@ -55,14 +74,12 @@ export default function CreateJob() {
         timeFrame: '',
       });
 
-      // Send user back to dashboard
       window.location.replace('/dashboard');
     } catch (error) {
       console.log(error);
     }
   };
 
-  // Renders submit button unclickable until each field meets minimum length
   const validate = () => {
     return (
       formState.name.length > 0 &&
@@ -71,6 +88,8 @@ export default function CreateJob() {
       parseInt(formState.timeFrame) > 0
     );
   };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="container">
@@ -130,7 +149,7 @@ export default function CreateJob() {
         </Form.Group>
 
         <Button block size="lg" type="submit" disabled={!validate()} className="mt-3">
-          Bid Proposal
+          Update Proposal
         </Button>
       </Form>
     </div>
