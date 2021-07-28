@@ -22,7 +22,7 @@ export default function Listings() {
 
   const cards = jobs.map((job, index) => {
     return (
-      <div className="card m-2 job-card" key={job._id}>
+      <div className="card my-2 mx-0 my-sm-3 mx-sm-5 job-card" key={job._id}>
         <div className="card-header">{job.name}</div>
         <div className="card-body p-4">
           <h4>User</h4>
@@ -56,5 +56,6 @@ export default function Listings() {
       </div>
     );
   });
+
   return cards;
 }
