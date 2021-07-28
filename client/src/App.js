@@ -23,6 +23,7 @@ import CreateJob from './pages/CreateJob';
 import EditJob from './pages/EditJob';
 import CreateProposal from './pages/CreateProposal';
 import SearchProfile from './pages/ContractorProfile';
+import Listings from './pages/Listings';
 import ManageJob from './pages/ManageJob';
 import ManageProposal from './pages/ManageProposal';
 // import JobList from './pages/JobList';
@@ -87,10 +88,15 @@ export default function App() {
                 {/* <Route exact path="/listings" component={JobList} /> */}
                 {/* <Route exact path="/createJob" component={CreateJob} />
                 <Route exact path="/job/:jobID" component={EditJob} />
-                <Route exact path="/createProposal" component={CreateProposal} />
+                <Route
+                  exact
+                  path="/createProposal/:jobID"
+                  component={CreateProposal}
+                />
                 <Switch>
                   <Route path="/manageJob/:jobID" children={<ManageJob />} />
                   <Route
+                    exact
                     path="/manageProposal/:proposalID"
                     children={<ManageProposal />}
                   />

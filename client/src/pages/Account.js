@@ -11,6 +11,8 @@ const Account = () => {
     return <div>Loading...</div>
   }
 
+
+
   // Simplify variables
   const user = data.getUser;
 
