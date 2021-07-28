@@ -102,7 +102,7 @@ export default function CreateJob() {
           />
         </Form.Group>
 
-        <Button block size="lg" type="submit" disabled={!validate()}>
+        <Button block size="lg" type="submit" disabled={!validate()} className="mt-3">
           Post Job
         </Button>
       </Form>
