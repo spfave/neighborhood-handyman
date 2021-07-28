@@ -35,6 +35,10 @@ const proposalSchema = new Schema({
     ref: 'Job',
     required: true,
   },
+  status: {
+    type: String,
+    default: 'Pending',
+  },
 });
 
 const Proposal = mongoose.model('Proposal', proposalSchema);
