@@ -43,7 +43,6 @@ export default function CreateJob() {
       costEstimate: parseFloat(formState.costEstimate),
       timeFrame: parseInt(formState.timeFrame),
     };
-    console.log(newProposal);
 
     try {
       const { data } = addProposal({ variables: { newProposal } });
