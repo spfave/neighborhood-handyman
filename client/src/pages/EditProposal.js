@@ -69,8 +69,9 @@ export default function EditProposal() {
       setFormState({
         name: '',
         description: '',
-        city: '',
-        needDate: '',
+        costEstimate: '',
+        startEstimate: '',
+        timeFrame: '',
       });
 
       window.location.replace('/dashboard');
