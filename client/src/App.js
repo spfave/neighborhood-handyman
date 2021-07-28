@@ -1,5 +1,5 @@
 // Package imports
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -88,19 +88,13 @@ export default function App() {
                 {/* <Route exact path="/listings" component={JobList} /> */}
                 {/* <Route exact path="/createJob" component={CreateJob} />
                 <Route exact path="/job/:jobID" component={EditJob} />
+                <Route exact path="/manageJob/:jobID" component={ManageJob} />
+                <Route exact path="/manageProposal/:proposalID" component={ManageProposal} />
                 <Route
                   exact
                   path="/createProposal/:jobID"
                   component={CreateProposal}
                 />
-                <Switch>
-                  <Route path="/manageJob/:jobID" children={<ManageJob />} />
-                  <Route
-                    exact
-                    path="/manageProposal/:proposalID"
-                    children={<ManageProposal />}
-                  />
-                </Switch>
               </section>
             </div> */}
             <Footer />
