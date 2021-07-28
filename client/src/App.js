@@ -71,7 +71,7 @@ export default function App() {
                 <Route exact path="/manageProposal/:proposalID" component={ManageProposal} />
                 <Route
                   exact
-                  path="/createProposal"
+                  path="/createProposal/:jobID"
                   component={CreateProposal}
                 />
               </section>
