@@ -25,7 +25,6 @@ import CreateProposal from './pages/CreateProposal';
 import Listings from './pages/Listings';
 import ManageJob from './pages/ManageJob';
 import ManageProposal from './pages/ManageProposal';
-// import JobList from './pages/JobList';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
