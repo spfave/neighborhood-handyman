@@ -59,6 +59,7 @@ export const QUERY_USER_JOB_PROPOSALS = gql`
 export const QUERY_USER_PROPOSAL = gql`
   query getProposal($proposalID: ID!) {
     getProposal(proposalID: $proposalID) {
+      name
       description
       costEstimate
       startEstimate
