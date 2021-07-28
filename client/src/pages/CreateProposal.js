@@ -46,9 +46,9 @@ export default function CreateJob({ jobID }) {
         stateEstimate: '',
         timeFrame: '',
       });
-      
+
       // Send user back to dashboard
-      window.location.replace("/dashboard");
+      window.location.replace('/dashboard');
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,7 @@ export default function CreateJob({ jobID }) {
     return (
       formState.name.length > 0 &&
       formState.costEstimate.length > 0 &&
-      formState.startEstimate > 0 &&
+      formState.startEstimate.length > 0 &&
       formState.timeFrame > 0
     );
   };
