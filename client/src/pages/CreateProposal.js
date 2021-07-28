@@ -32,7 +32,7 @@ export default function CreateJob() {
 
   const [addProposal, { error }] = useMutation(ADD_PROPOSAL);
 
-  const handleJobFormSubmit = async (event) => {
+  const handleProposalFormSubmit = async (event) => {
     event.preventDefault();
 
     const userID = Auth.getUser().data._id;
@@ -75,7 +75,7 @@ export default function CreateJob() {
 
   return (
     <div className="container">
-      <Form onSubmit={handleJobFormSubmit}>
+      <Form onSubmit={handleProposalFormSubmit}>
         <Form.Group size="lg" controlId="name">
           <Form.Label>Proposal Name</Form.Label>
           <Form.Control
