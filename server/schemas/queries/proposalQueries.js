@@ -4,7 +4,7 @@ async function getJobProposals(parent, { jobID }, context) {
   if (!context.user)
     throw new AuthenticationError('You need to log in for access');
 
-  const jobProposals = await Proposal.find({ job: jobID });
+  const jobProposals = await Proposal.find({ job: jobID }).populate('user');
   return jobProposals;
 }
 
