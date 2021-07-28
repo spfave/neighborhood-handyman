@@ -9,7 +9,7 @@
 - [Screenshots](#screenshots)
 
 ## Project Overview
-[Add description later]
+Full stack application for users to post home improvement projects and accepting proposals as well as submitting proposals for different users' projects. Built using MERN stack: React front end, MongoDB database, and Node.js/Express.js server and GraphQL API with Mongoose ODM. User authentication is achieved using the JSON Web Token library along with Apollo Server for managing context within the application.
 
 [View the live application](https://neighborhood-handyman.herokuapp.com/) in Heroku.
 
