@@ -54,7 +54,7 @@ export default function App() {
     <ApolloProvider client={client}>
       <BrowserRouter basename="/">
         {Auth.loggedIn() ? (
-          <div className="App">
+          <div className="non-footer m-2 m-sm-4">
             <Header />
             <section className="content">
               {/* Set default page to Dashboard */}
@@ -65,6 +65,7 @@ export default function App() {
               <Route exact path="/dashboard" component={Dashboard} />
               {/* <Route exact path="/listings" component={JobList} /> */}
               <Route exact path="/createJob" component={CreateJob} />
+              <Route exact path="/job/:jobID" component={EditJob} />
               <Route exact path="/createProposal" component={CreateProposal} />
 
               <Route exact path="/contractorProfile" component={SearchProfile} />
@@ -73,17 +74,18 @@ export default function App() {
                 <Route path="/manageProposal/:proposalID" children={<ManageProposal />} />
               </Switch>
             </section>
-            <div className="non-footer m-2 m-sm-4">
+
+            {/* <div className="non-footer m-2 m-sm-4">
               <Header />
-              <section className="content">
+              <section className="content"> */}
                 {/* Set default page to Dashboard */}
-                <Route exact path="/">
+                {/* <Route exact path="/">
                   <Redirect to="/dashboard" />
                 </Route>
                 <Route exact path="/account" component={Account} />
-                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/dashboard" component={Dashboard} /> */}
                 {/* <Route exact path="/listings" component={JobList} /> */}
-                <Route exact path="/createJob" component={CreateJob} />
+                {/* <Route exact path="/createJob" component={CreateJob} />
                 <Route exact path="/job/:jobID" component={EditJob} />
                 <Route exact path="/createProposal" component={CreateProposal} />
                 <Switch>
@@ -94,7 +96,7 @@ export default function App() {
                   />
                 </Switch>
               </section>
-            </div>
+            </div> */}
             <Footer />
           </div>
         ) : (
