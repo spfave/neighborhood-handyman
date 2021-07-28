@@ -70,10 +70,10 @@ export default function App() {
               <Route exact path="/createProposal" component={CreateProposal} />
 
               <Route exact path="/contractorProfile" component={SearchProfile} />
-              <Switch>
+              {/* <Switch> */}
                 <Route path="/manageJob/:jobID" children={<ManageJob />} />
                 <Route path="/manageProposal/:proposalID" children={<ManageProposal />} />
-              </Switch>
+              {/* </Switch> */}
             </section>
 
             {/* <div className="non-footer m-2 m-sm-4">
