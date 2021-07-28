@@ -16,9 +16,9 @@ export default function CreateJob() {
   const [formState, setFormState] = useState({
     name: '',
     description: '',
-    costEstimate: 0,
+    costEstimate: '',
     startEstimate: '',
-    timeFrame: 0,
+    timeFrame: '',
   });
 
   const handleChange = ({ target }) => {
@@ -51,9 +51,9 @@ export default function CreateJob() {
       setFormState({
         name: '',
         description: '',
-        costEstimate: 0,
+        costEstimate: '',
         startEstimate: '',
-        timeFrame: 0,
+        timeFrame: '',
       });
 
       // Send user back to dashboard
@@ -67,9 +67,9 @@ export default function CreateJob() {
   const validate = () => {
     return (
       formState.name.length > 0 &&
-      formState.costEstimate > 0 &&
+      parseFloat(formState.costEstimate) > 0 &&
       formState.startEstimate.length > 0 &&
-      formState.timeFrame > 0
+      parseInt(formState.timeFrame) > 0
     );
   };
 
