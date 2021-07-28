@@ -9,8 +9,6 @@ import dateConverter from '../utils/dateConverter';
 export default function Listings() {
   const allJobs = useQuery(QUERY_ALL_JOBS);
 
-  // let user;
-
   if (allJobs.loading) {
     return <div>Loading...</div>;
   }
@@ -18,9 +16,8 @@ export default function Listings() {
   console.log(allJobs);
 
   const jobs = allJobs.data.getJobs;
-  // const users = allJobs.data.getJobs.user;
 
-  const cards = jobs.map((job, index) => {
+  const cards = jobs.map((job) => {
     return (
       <div className="card my-2 mx-0 my-sm-3 mx-sm-5 job-card" key={job._id}>
         <div className="card-header">{job.name}</div>
@@ -34,11 +31,8 @@ export default function Listings() {
           <h4>Location</h4>
           <p>{job.city}</p>
           <h4>Description</h4>
-          <p>{job.description ? job.description : 'None Specified'}</p>
-          {job.skills.length === 0 ? (
-            // Return nothing if the skills array is empty
-            ''
-          ) : (
+          <p>{job.description ? job.description : 'None provided'}</p>
+          {job.skills.length ? (
             <>
               <h4>Skills Needed</h4>
               <ul>
@@ -47,11 +41,13 @@ export default function Listings() {
                 })}
               </ul>
             </>
+          ) : (
+            // Return nothing if the skills array is empty
+            ''
           )}
           <Link to={`/createProposal/${job._id}`}>
             <Button>Submit Proposal</Button>
           </Link>
-          {/* <Button>Submit Proposal</Button> */}
         </div>
       </div>
     );
