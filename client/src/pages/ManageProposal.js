@@ -79,9 +79,9 @@ const ManageProposal = () => {
           <h3>User</h3>
           <p>{jobUserName}</p>
           <h3>Requested Date of Completion</h3>
-          <p>{dateConverter(job.needDate)}</p>
+          <p>{job.needDate ? dateConverter(job.needDate) : 'None specified'}</p>
           <h3>Description</h3>
-          <p>{job.description}</p>
+          <p>{job.description ? job.description : 'None provided'}</p>
           <h3>Location</h3>
           <p>{job.city}</p>
           {job.skills.length ? (
