@@ -6,7 +6,7 @@ import dateFormat from 'dateformat';
 
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_JOB } from '../utils/queries';
+import { QUERY_USER_JOB } from '../utils/queries';
 import { EDIT_JOB } from '../utils/mutations';
 
 import Auth from '../utils/auth';
@@ -23,7 +23,7 @@ export default function EditJob() {
   });
 
   const { jobID } = useParams();
-  const { loading, data } = useQuery(QUERY_JOB, { variables: { jobID } });
+  const { loading, data } = useQuery(QUERY_USER_JOB, { variables: { jobID } });
   const [editJob, { error }] = useMutation(EDIT_JOB);
 
   useEffect(() => {

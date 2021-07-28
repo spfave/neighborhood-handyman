@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+// Signup/Login
 export const ADD_USER = gql`
   mutation addUser($newUser: NewUserInput!) {
     addUser(newUser: $newUser) {
@@ -16,6 +17,7 @@ export const LOGIN_USER = gql`
   }
 `;
 
+// Job Mutations
 export const ADD_JOB = gql`
   mutation createJob($newJob: JobInput!) {
     createJob(newJob: $newJob) {
@@ -50,9 +52,23 @@ export const DELETE_JOB = gql`
   }
 `;
 
+//  Proposal Mutations
 export const ADD_PROPOSAL = gql`
   mutation createProposal($newProposal: ProposalInput!) {
     createProposal(newProposal: $newProposal) {
+      _id
+      name
+      description
+      costEstimate
+      startEstimate
+      timeFrame
+    }
+  }
+`;
+
+export const EDIT_PROPOSAL = gql`
+  mutation editProposal($proposalID: ID!, $updateProp: ProposalInput!) {
+    editProposal(proposalID: $proposalID, updateProp: $updateProp) {
       _id
       name
       description
