@@ -8,6 +8,15 @@ const ProposalCard = props => {
                 <div className="card my-2 proposal-card">
                     <div className="card-header">{proposal.name}</div>
                     <div className="card-body p-2">
+                    {proposal.description ? (
+                        <>
+                        <h4>Description</h4>
+                        <p>{proposal.description}</p>
+                        </>
+                    ) : (
+                        // If no description, return nothing
+                        ''
+                    )}
                         <ul>
                             <li>
                                 Estimated Cost: ${proposal.costEstimate}

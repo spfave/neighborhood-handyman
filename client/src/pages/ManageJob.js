@@ -57,6 +57,15 @@ const ManageJob = () => {
             {proposal.user.firstName} {proposal.user.lastName}
           </div>
           <div className="card-body p-2">
+            {proposal.description ? (
+              <>
+                  <h4>Description</h4>
+                  <p>{proposal.description}</p>
+              </>
+            ) : (
+              // If no description, return nothing
+              ''
+            )}
             <ul>
               <li>Estimated Cost: ${proposal.costEstimate}</li>
               <li>
@@ -72,13 +81,13 @@ const ManageJob = () => {
 
   return (
     <section className="p-2 manage-job">
-      <div className="card m-2">
+      <div className="card m-2 mb-4">
         <div className="card-header">{job.name}</div>
         <div className="card-body p-4">
           <h3>Requested Date of Completion</h3>
           <p>{job.needDate ? dateConverter(job.needDate) : 'None specified'}</p>
           <h3>Description</h3>
-          <p>{job.description}</p>
+          <p>{job.description ? job.description : 'None provided'}</p>
           <h3>Location</h3>
           <p>{job.city}</p>
           {job.skills.length ? (
@@ -95,14 +104,14 @@ const ManageJob = () => {
             ''
           )}
         </div>
-        <Link to={`/job/${jobID}`}>
-          <Button className="w-75 d-flex justify-content-center m-2">
+        <Link to={`/job/${jobID}`} className="w-75 my-2 mx-auto">
+          <Button className="w-100">
             Edit Job
           </Button>
         </Link>
         <Button
           onClick={removeJob}
-          className="w-75 d-flex justify-content-center mx-2 mb-2"
+          className="w-75 mb-4 mx-auto btn-danger"
         >
           Delete Job
         </Button>

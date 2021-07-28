@@ -39,7 +39,7 @@ const ManageProposal = () => {
 
   return (
     <section className="p-2 manage-proposal">
-      <div className="card m-2">
+      <div className="card m-2 mb-4">
         <div className="card-header">Proposal for "{job.name}"</div>
         <div className="card-body p-4">
           {proposal.description ? (
@@ -59,14 +59,14 @@ const ManageProposal = () => {
             <li>Time Frame: {proposal.timeFrame} day(s)</li>
           </ul>
         </div>
-        <Link to={`/proposal/${proposalID}`}>
-          <Button className="w-75 d-flex justify-content-center m-2">
+        <Link to={`/proposal/${proposalID}`} className="w-75 my-2 mx-auto">
+          <Button className="w-100">
             Edit Proposal
           </Button>
         </Link>
         <Button
           onClick={removeProposal}
-          className="w-75 d-flex justify-content-center mx-2 mb-2"
+          className="w-75 mb-4 mx-auto btn-danger"
         >
           Delete Proposal
         </Button>
@@ -79,9 +79,9 @@ const ManageProposal = () => {
           <h3>User</h3>
           <p>{jobUserName}</p>
           <h3>Requested Date of Completion</h3>
-          <p>{dateConverter(job.needDate)}</p>
+          <p>{job.needDate ? dateConverter(job.needDate) : 'None specified'}</p>
           <h3>Description</h3>
-          <p>{job.description}</p>
+          <p>{job.description ? job.description : 'None provided'}</p>
           <h3>Location</h3>
           <p>{job.city}</p>
           {job.skills.length ? (

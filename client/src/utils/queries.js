@@ -19,6 +19,7 @@ export const QUERY_USER_PROPOSALS = gql`
     getUserProposals {
       _id
       name
+      description
       costEstimate
       startEstimate
       timeFrame

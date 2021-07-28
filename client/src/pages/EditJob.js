@@ -125,7 +125,7 @@ export default function EditJob() {
           />
         </Form.Group>
 
-        <Button block size="lg" type="submit" disabled={!validate()}>
+        <Button block size="lg" type="submit" disabled={!validate()} className="mt-3">
           Update Job
         </Button>
       </Form>
