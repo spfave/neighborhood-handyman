@@ -57,6 +57,15 @@ const ManageJob = () => {
             {proposal.user.firstName} {proposal.user.lastName}
           </div>
           <div className="card-body p-2">
+            {proposal.description ? (
+              <>
+                  <h4>Description</h4>
+                  <p>{proposal.description}</p>
+              </>
+            ) : (
+              // If no description, return nothing
+              ''
+            )}
             <ul>
               <li>Estimated Cost: ${proposal.costEstimate}</li>
               <li>
