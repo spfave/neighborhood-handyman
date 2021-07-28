@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -8,7 +9,9 @@ import { useMutation } from '@apollo/client';
 import { ADD_PROPOSAL } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-export default function CreateJob({ jobID }) {
+export default function CreateJob() {
+  const { jobID } = useParams();
+
   // State variables
   const [formState, setFormState] = useState({
     name: '',
@@ -33,7 +36,6 @@ export default function CreateJob({ jobID }) {
     event.preventDefault();
 
     const userID = Auth.getUser().data._id;
-    // const jobID = ;
     const newProposal = { user: userID, job: jobID, ...formState };
 
     try {
@@ -43,12 +45,12 @@ export default function CreateJob({ jobID }) {
         name: '',
         description: '',
         costEstimate: '',
-        stateEstimate: '',
+        startEstimate: '',
         timeFrame: '',
       });
-      
+
       // Send user back to dashboard
-      window.location.replace("/dashboard");
+      // window.location.replace('/dashboard');
     } catch (error) {
       console.log(error);
     }
@@ -59,8 +61,8 @@ export default function CreateJob({ jobID }) {
     return (
       formState.name.length > 0 &&
       formState.costEstimate.length > 0 &&
-      formState.startEstimate > 0 &&
-      formState.timeFrame > 0
+      formState.startEstimate.length > 0 &&
+      formState.timeFrame.length > 0
     );
   };
 
@@ -99,15 +101,14 @@ export default function CreateJob({ jobID }) {
           ></Form.Control>
         </Form.Group>
 
-        <Form.Group size="lg" controlId="stateEstimate">
+        <Form.Group size="lg" controlId="startEstimate">
           <Form.Label>Estimated Start Date</Form.Label>
           <Form.Control
-            name="stateEstimate"
+            name="startEstimate"
             type="date"
-            value={formState.stateEstimate}
+            value={formState.startEstimate}
             onChange={handleChange}
             min={dateFormat(new Date(), 'isoDate')}
-            placeholder="mm/dd/yyyy"
           />
         </Form.Group>
 
