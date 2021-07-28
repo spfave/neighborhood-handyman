@@ -36,7 +36,7 @@ const proposalSchema = new Schema({
     required: true,
   },
   status: {
-    type:String,
+    type: String,
     default: 'Pending',
   },
 });
