@@ -16,9 +16,9 @@ export default function CreateJob() {
   const [formState, setFormState] = useState({
     name: '',
     description: '',
-    costEstimate: '',
+    costEstimate: 0,
     startEstimate: '',
-    timeFrame: '',
+    timeFrame: 0,
   });
 
   const handleChange = ({ target }) => {
@@ -36,7 +36,14 @@ export default function CreateJob() {
     event.preventDefault();
 
     const userID = Auth.getUser().data._id;
-    const newProposal = { user: userID, job: jobID, ...formState };
+    const newProposal = {
+      user: userID,
+      job: jobID,
+      ...formState,
+      costEstimate: parseFloat(formState.costEstimate),
+      timeFrame: parseInt(formState.timeFrame),
+    };
+    console.log(newProposal);
 
     try {
       const { data } = addProposal({ variables: { newProposal } });
@@ -44,13 +51,13 @@ export default function CreateJob() {
       setFormState({
         name: '',
         description: '',
-        costEstimate: '',
+        costEstimate: 0,
         startEstimate: '',
-        timeFrame: '',
+        timeFrame: 0,
       });
 
       // Send user back to dashboard
-      // window.location.replace('/dashboard');
+      window.location.replace('/dashboard');
     } catch (error) {
       console.log(error);
     }
@@ -60,9 +67,9 @@ export default function CreateJob() {
   const validate = () => {
     return (
       formState.name.length > 0 &&
-      formState.costEstimate.length > 0 &&
+      formState.costEstimate > 0 &&
       formState.startEstimate.length > 0 &&
-      formState.timeFrame.length > 0
+      formState.timeFrame > 0
     );
   };
 
@@ -113,10 +120,10 @@ export default function CreateJob() {
         </Form.Group>
 
         <Form.Group size="lg" controlId="timeFrame">
-          <Form.Label>Estimated Time to Complete</Form.Label>
+          <Form.Label>Estimated Time to Complete (days)</Form.Label>
           <Form.Control
             name="timeFrame"
-            type="text"
+            type="number"
             value={formState.timeFrame}
             onChange={handleChange}
             placeholder="Enter number of days"
