@@ -70,6 +70,10 @@ body {
     color:rgb(46, 37, 50);
 }
 
+.card-body h4 {
+    color:rgb(187, 103, 142);
+}
+
 /* Turns navbar vertical for mobile screens */
 @media only screen and (max-width: 550px) {
     .header nav {
