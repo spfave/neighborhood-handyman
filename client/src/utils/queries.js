@@ -56,19 +56,6 @@ export const QUERY_USER_JOB_PROPOSALS = gql`
   }
 `;
 
-export const CONTRACTOR_PROFILE = gql`
-query getUser($firstName: STRING, $lastName: STRING) {
-    getUser(firstName: $firstName, lastName: $lastName) {
-      reviews {
-        reviewText
-        reviewAuthor
-        createdAt
-      }
-      }
-    }
-    `;
-
-// Used in ManageProposal
 // Manage Proposal
 export const QUERY_USER_PROPOSAL = gql`
   query getProposal($proposalID: ID!) {
@@ -120,6 +107,19 @@ export const QUERY_USER = gql`
       lastName
       email
       city
+    }
+  }
+`;
+
+// Profile
+export const CONTRACTOR_PROFILE = gql`
+  query getUser($firstName: STRING, $lastName: STRING) {
+    getUser(firstName: $firstName, lastName: $lastName) {
+      reviews {
+        reviewText
+        reviewAuthor
+        createdAt
+      }
     }
   }
 `;
