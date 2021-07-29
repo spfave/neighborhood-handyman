@@ -110,3 +110,16 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+// Profile
+export const CONTRACTOR_PROFILE = gql`
+  query getUser($firstName: STRING, $lastName: STRING) {
+    getUser(firstName: $firstName, lastName: $lastName) {
+      reviews {
+        reviewText
+        reviewAuthor
+        createdAt
+      }
+    }
+  }
+`;

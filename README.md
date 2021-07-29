@@ -53,4 +53,23 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 [View the full license](./LICENSE)
 
 ## Screenshots
-[Add screenshots later]
+Create Your Account Page
+![Signup page](assets/screenshots/signup.png)
+
+My Account
+![My Account page](assets/screenshots/account.png)
+
+Dashboard
+![Dashboard page](assets/screenshots/dashboard.png)
+
+Create a New Job
+![Create a new job page](assets/screenshots/createNewJob.png)
+
+Job Listings Page
+![Job Listing page](assets/screenshots/joblistings.png)
+
+Proposals
+![Proposals page](assets/screenshots/proposals.png)
+
+User Proposals
+![User Proposals page](assets/screenshots/userProposal.png)
