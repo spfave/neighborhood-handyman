@@ -14,7 +14,7 @@ const JobCard = (props) => {
             <p>{job.city}</p>
             <h4>Description</h4>
             <p>{job.description ? job.description : 'None provided'}</p>
-            {job.skills.length ? (
+            {job.skills.length > 0 && (
               <>
                 <h4>Skills Needed</h4>
                 <ul>
@@ -23,9 +23,6 @@ const JobCard = (props) => {
                   })}
                 </ul>
               </>
-            ) : (
-              // Return nothing if the skills array is empty
-              ''
             )}
           </div>
         </div>

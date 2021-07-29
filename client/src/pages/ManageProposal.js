@@ -42,14 +42,11 @@ const ManageProposal = () => {
       <div className="card m-2 mb-4">
         <div className="card-header">Proposal for "{job.name}"</div>
         <div className="card-body p-4">
-          {proposal.description ? (
+          {proposal.description && (
             <>
               <h3>Description</h3>
               <p>{proposal.description}</p>
             </>
-          ) : (
-            // If no description, return nothing
-            ''
           )}
           <ul>
             <li>Estimated Cost: ${proposal.costEstimate}</li>
@@ -84,7 +81,7 @@ const ManageProposal = () => {
           <p>{job.description ? job.description : 'None provided'}</p>
           <h3>Location</h3>
           <p>{job.city}</p>
-          {job.skills.length ? (
+          {job.skills.length > 0 && (
             <>
               <h3>Skills Required</h3>
               <ul>
@@ -93,9 +90,6 @@ const ManageProposal = () => {
                 })}
               </ul>
             </>
-          ) : (
-            // If skills array is empty, return nothing
-            ''
           )}
         </div>
       </div>

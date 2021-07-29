@@ -32,7 +32,7 @@ export default function Listings() {
           <p>{job.city}</p>
           <h4>Description</h4>
           <p>{job.description ? job.description : 'None provided'}</p>
-          {job.skills.length ? (
+          {job.skills.length > 0 && (
             <>
               <h4>Skills Needed</h4>
               <ul>
@@ -41,9 +41,6 @@ export default function Listings() {
                 })}
               </ul>
             </>
-          ) : (
-            // Return nothing if the skills array is empty
-            ''
           )}
           <Link to={`/createProposal/${job._id}`}>
             <Button>Submit Proposal</Button>
