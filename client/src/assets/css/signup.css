@@ -3,5 +3,9 @@
 }
 
 .signup i.fa-check-square {
-    color: green;
+    color: rgb(93, 115, 126);
+}
+
+.mt-3 {
+    background-color: rgb(165, 1, 4);
 }

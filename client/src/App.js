@@ -22,11 +22,14 @@ import SignUp from './pages/SignUp';
 import CreateJob from './pages/CreateJob';
 import EditJob from './pages/EditJob';
 import CreateProposal from './pages/CreateProposal';
+<<<<<<< HEAD
 import SearchProfile from './pages/ContractorProfile';
+=======
+import EditProposal from './pages/EditProposal';
+>>>>>>> main
 import Listings from './pages/Listings';
 import ManageJob from './pages/ManageJob';
 import ManageProposal from './pages/ManageProposal';
-// import JobList from './pages/JobList';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -89,7 +92,16 @@ export default function App() {
                 {/* <Route exact path="/createJob" component={CreateJob} />
                 <Route exact path="/job/:jobID" component={EditJob} />
                 <Route exact path="/manageJob/:jobID" component={ManageJob} />
-                <Route exact path="/manageProposal/:proposalID" component={ManageProposal} />
+                <Route
+                  exact
+                  path="/proposal/:proposalID"
+                  component={EditProposal}
+                />
+                <Route
+                  exact
+                  path="/manageProposal/:proposalID"
+                  component={ManageProposal}
+                />
                 <Route
                   exact
                   path="/createProposal/:jobID"

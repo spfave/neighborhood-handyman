@@ -44,7 +44,6 @@ export default function SignUp() {
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
 
         try {
             const { data } = await addUser({
@@ -63,6 +62,9 @@ export default function SignUp() {
             });
         } catch (e) {
             console.error(e);
+
+            // Inform user of error
+            alert(`${e}. Please try again.`);
         }
     };
 

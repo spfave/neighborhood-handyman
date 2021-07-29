@@ -14,22 +14,23 @@ import { QUERY_USER_JOBS, QUERY_USER_PROPOSALS } from '../utils/queries';
 import '../assets/css/dashboard.css';
 
 export default function Dashboard() {
-  const userJobs = useQuery(QUERY_USER_JOBS);
-  const userProposals = useQuery(QUERY_USER_PROPOSALS);
+  const jobsData = useQuery(QUERY_USER_JOBS);
+  const proposalsData = useQuery(QUERY_USER_PROPOSALS);
 
-  if (userJobs.loading) {
-    return <div>Loading...</div>;
+  if (jobsData.loading) {
+    return <p>Loading...</p>;
   }
 
-  if (userProposals.loading) {
-    return <div>Loading...</div>;
+  if (proposalsData.loading) {
+    return <p>Loading...</p>;
   }
-
-  console.log(userJobs.data.getUserJobs);
-  console.log(userProposals.data.getUserProposals);
 
   const user = Auth.getUser();
   const userName = `${user.data.firstName} ${user.data.lastName}`;
+
+  // Simplify variables for passing in as props
+  const userJobs = jobsData.data.getUserJobs
+  const userProposals = proposalsData.data.getUserProposals;
 
   return (
     <section className="container">
@@ -42,13 +43,12 @@ export default function Dashboard() {
           <Link className="btn btn-success" to="/createJob">
             <strong>Create New Job</strong>
           </Link>
-          {/* <button>Request Help</button> */}
           {
-            // Since empty array doesn't  evaluate to falsy in JavaScript
-            userJobs.data.getUserJobs.length === 0 ? (
-              <p>Awaiting your first job!</p>
+            // Since empty array doesn't  evaluate to falsy in JavaScript, but 0 does
+            userJobs.length ? (
+              <JobCard jobs={userJobs} />
             ) : (
-              <JobCard jobs={userJobs.data.getUserJobs} />
+              <p>Awaiting your first job!</p>
             )
           }
         </div>
@@ -57,11 +57,11 @@ export default function Dashboard() {
         <div className="col-md-6">
           <h3>Your Proposals</h3>
           {
-            // Since empty array doesn't evaluate to falsy in JavaScript
-            userProposals.data.getUserProposals.length === 0 ? (
-              <p>Awaiting your first proposal!</p>
+            // Since empty array doesn't evaluate to falsy in JavaScript, but 0 does
+            userProposals.length ? (
+              <ProposalCard proposals={userProposals} />              
             ) : (
-              <ProposalCard proposals={userProposals.data.getUserProposals} />
+              <p>Awaiting your first proposal!</p>
             )
           }
         </div>

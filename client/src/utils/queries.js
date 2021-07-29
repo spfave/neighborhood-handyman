@@ -1,43 +1,6 @@
 import { gql } from '@apollo/client';
 
-// export const QUERY_PROFILES = gql`
-//   query allProfiles {
-//     profiles {
-//       _id
-//       name
-//     }
-//   }
-// `;
-
-export const QUERY_USER = gql`
-  query getUser {
-    getUser {
-      firstName
-      lastName
-      email
-      city
-    }
-  }
-`;
-
-// export const QUERY_ME = gql`
-//   query singleProfile {
-//     getUser {
-//       userType
-//       firstName
-//       lastName
-//       email
-//       city
-//       reviews {
-//         reviewText
-//         reviewAuthor
-//         createdAt
-//       }
-//     }
-//   }
-// `;
-
-// Used in Dashboard
+// Dashboard
 export const QUERY_USER_JOBS = gql`
   query userJobs {
     getUserJobs {
@@ -51,7 +14,20 @@ export const QUERY_USER_JOBS = gql`
   }
 `;
 
-// Used in ManageJob
+export const QUERY_USER_PROPOSALS = gql`
+  query userProposals {
+    getUserProposals {
+      _id
+      name
+      description
+      costEstimate
+      startEstimate
+      timeFrame
+    }
+  }
+`;
+
+// Manage Job
 export const QUERY_USER_JOB = gql`
   query getJob($jobID: ID!) {
     getJob(jobID: $jobID) {
@@ -64,7 +40,6 @@ export const QUERY_USER_JOB = gql`
   }
 `;
 
-// Used in ManageJob
 export const QUERY_USER_JOB_PROPOSALS = gql`
   query getJobProposals($jobID: ID!) {
     getJobProposals(jobID: $jobID) {
@@ -81,51 +56,7 @@ export const QUERY_USER_JOB_PROPOSALS = gql`
   }
 `;
 
-export const QUERY_JOB = gql`
-  query getJob($jobID: ID!) {
-    getJob(jobID: $jobID) {
-      _id
-      name
-      description
-      skills
-      city
-      needDate
-      user {
-        _id
-      }
-    }
-  }
-`;
-
-export const QUERY_ALL_JOBS = gql`
-query getJobs {
-  getJobs {
-    _id
-    name
-    description
-    skills
-    city
-    needDate
-    user {
-      firstName
-      lastName
-    }
-  }
-}
-`;
-
-export const QUERY_USER_PROPOSALS = gql`
-  query userProposals {
-    getUserProposals {
-      _id
-      name
-      costEstimate
-      startEstimate
-      timeFrame
-    }
-  }
-`;
-
+<<<<<<< HEAD
 export const CONTRACTOR_PROFILE = gql`
 query getUser($firstName: STRING, $lastName: STRING) {
     getUser(firstName: $firstName, lastName: $lastName) {
@@ -139,9 +70,13 @@ query getUser($firstName: STRING, $lastName: STRING) {
     `;
 
 // Used in ManageProposal
+=======
+// Manage Proposal
+>>>>>>> main
 export const QUERY_USER_PROPOSAL = gql`
   query getProposal($proposalID: ID!) {
     getProposal(proposalID: $proposalID) {
+      name
       description
       costEstimate
       startEstimate
@@ -158,6 +93,36 @@ export const QUERY_USER_PROPOSAL = gql`
           lastName
         }
       }
+    }
+  }
+`;
+
+// Job Listings
+export const QUERY_ALL_JOBS = gql`
+  query getJobs {
+    getJobs {
+      _id
+      name
+      description
+      skills
+      city
+      needDate
+      user {
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+
+// Account
+export const QUERY_USER = gql`
+  query getUser {
+    getUser {
+      firstName
+      lastName
+      email
+      city
     }
   }
 `;
