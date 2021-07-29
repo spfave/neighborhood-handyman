@@ -57,14 +57,11 @@ const ManageJob = () => {
             {proposal.user.firstName} {proposal.user.lastName}
           </div>
           <div className="card-body p-2">
-            {proposal.description ? (
+            {proposal.description && (
               <>
                   <h4>Description</h4>
                   <p>{proposal.description}</p>
               </>
-            ) : (
-              // If no description, return nothing
-              ''
             )}
             <ul>
               <li>Estimated Cost: ${proposal.costEstimate}</li>
@@ -90,7 +87,7 @@ const ManageJob = () => {
           <p>{job.description ? job.description : 'None provided'}</p>
           <h3>Location</h3>
           <p>{job.city}</p>
-          {job.skills.length ? (
+          {job.skills.length > 0 && (
             <>
               <h3>Skills Required</h3>
               <ul>
@@ -99,9 +96,6 @@ const ManageJob = () => {
                 })}
               </ul>
             </>
-          ) : (
-            // If skills array is empty, return nothing
-            ''
           )}
         </div>
         <Link to={`/job/${jobID}`} className="w-75 my-2 mx-auto">
