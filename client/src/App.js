@@ -54,38 +54,18 @@ export default function App() {
     <ApolloProvider client={client}>
       <BrowserRouter basename="/">
         {Auth.loggedIn() ? (
-          <div className="non-footer m-2 m-sm-4">
-            <Header />
-            <section className="content">
-              {/* Set default page to Dashboard */}
-              <Route exact path="/">
-                <Redirect to="/dashboard" />
-              </Route>
-              <Route exact path="/account" component={Account} />
-              <Route exact path="/dashboard" component={Dashboard} />
-              {/* <Route exact path="/listings" component={JobList} /> */}
-              <Route exact path="/createJob" component={CreateJob} />
-              <Route exact path="/job/:jobID" component={EditJob} />
-              <Route exact path="/createProposal" component={CreateProposal} />
-
-              {/* <Route exact path="/contractorProfile" component={SearchProfile} /> */}
-              {/* <Switch> */}
-                <Route path="/manageJob/:jobID" children={<ManageJob />} />
-                <Route path="/manageProposal/:proposalID" children={<ManageProposal />} />
-              {/* </Switch> */}
-            </section>
-
-            {/* <div className="non-footer m-2 m-sm-4">
+          <div className="App">
+            <div className="non-footer m-2 m-sm-4">
               <Header />
-              <section className="content"> */}
+              <section className="content">
                 {/* Set default page to Dashboard */}
-                {/* <Route exact path="/">
+                <Route exact path="/">
                   <Redirect to="/dashboard" />
                 </Route>
                 <Route exact path="/account" component={Account} />
-                <Route exact path="/dashboard" component={Dashboard} /> */}
-                {/* <Route exact path="/listings" component={JobList} /> */}
-                {/* <Route exact path="/createJob" component={CreateJob} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/listings" component={Listings} />
+                <Route exact path="/createJob" component={CreateJob} />
                 <Route exact path="/job/:jobID" component={EditJob} />
                 <Route exact path="/manageJob/:jobID" component={ManageJob} />
                 <Route
@@ -104,7 +84,7 @@ export default function App() {
                   component={CreateProposal}
                 />
               </section>
-            </div> */}
+            </div>
             <Footer />
           </div>
         ) : (
