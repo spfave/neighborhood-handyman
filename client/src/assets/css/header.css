@@ -1,5 +1,5 @@
 .header nav {
-    width: fit-content;
+    width: 100%;
 }
 
 .header ul li {
@@ -39,7 +39,8 @@
     padding: 6px;
     font-weight: 700;
     transition: opacity 0.25s;
-    border: none
+    border: none;
+    float: right;
 }
 
 .header #logout:hover {
@@ -70,5 +71,9 @@
 
     .header ul li a {
         width: 100%;
+    }
+
+    .header #logout {
+        float: none;
     }
 }
