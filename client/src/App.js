@@ -22,11 +22,7 @@ import SignUp from './pages/SignUp';
 import CreateJob from './pages/CreateJob';
 import EditJob from './pages/EditJob';
 import CreateProposal from './pages/CreateProposal';
-<<<<<<< HEAD
-import SearchProfile from './pages/ContractorProfile';
-=======
 import EditProposal from './pages/EditProposal';
->>>>>>> main
 import Listings from './pages/Listings';
 import ManageJob from './pages/ManageJob';
 import ManageProposal from './pages/ManageProposal';
@@ -72,7 +68,7 @@ export default function App() {
               <Route exact path="/job/:jobID" component={EditJob} />
               <Route exact path="/createProposal" component={CreateProposal} />
 
-              <Route exact path="/contractorProfile" component={SearchProfile} />
+              {/* <Route exact path="/contractorProfile" component={SearchProfile} /> */}
               {/* <Switch> */}
                 <Route path="/manageJob/:jobID" children={<ManageJob />} />
                 <Route path="/manageProposal/:proposalID" children={<ManageProposal />} />

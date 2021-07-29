@@ -56,7 +56,6 @@ export const QUERY_USER_JOB_PROPOSALS = gql`
   }
 `;
 
-<<<<<<< HEAD
 export const CONTRACTOR_PROFILE = gql`
 query getUser($firstName: STRING, $lastName: STRING) {
     getUser(firstName: $firstName, lastName: $lastName) {
@@ -70,9 +69,7 @@ query getUser($firstName: STRING, $lastName: STRING) {
     `;
 
 // Used in ManageProposal
-=======
 // Manage Proposal
->>>>>>> main
 export const QUERY_USER_PROPOSAL = gql`
   query getProposal($proposalID: ID!) {
     getProposal(proposalID: $proposalID) {
