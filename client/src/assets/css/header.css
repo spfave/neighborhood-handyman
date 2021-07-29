@@ -9,7 +9,7 @@
 }
   
 .header ul {
-    background-color: #111;
+    background-color: rgb(37, 0, 1);
     padding: 0;
     border-radius: 10px;
 }
@@ -28,11 +28,11 @@
 }
 
 .header .active {
-    background-color: #0099FF;
+    background-color: rgb(252, 186, 4);
 }
 
 .header #logout {
-    background-color: red;
+    background-color: rgb(165, 1, 4);
     color: #fff;
     margin: 12px;
     border-radius: 10px;
@@ -54,6 +54,19 @@
 
 .header #home-link:hover {
     opacity: 0.75;
+}
+
+body {
+    background-color: rgb(243, 243, 243)
+}
+
+.card-header {
+    color: rgb(187, 103, 142);
+    background-color: rgb(37, 0, 1);
+}
+
+.card-body {
+    color:rgb(46, 37, 50);
 }
 
 /* Turns navbar vertical for mobile screens */

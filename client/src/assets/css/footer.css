@@ -1,6 +1,6 @@
 footer {
     grid-row: 2 / span 1;
-    background-color: darkslategray;
+    background-color: rgb(89, 0, 4);
     color: #fff;
     height: fit-content;
 }
