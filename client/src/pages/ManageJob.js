@@ -11,7 +11,7 @@ import '../assets/css/manageJob.css';
 const ManageJob = () => {
   const { jobID } = useParams();
 
-  const [deleteJob, { error, data }] = useMutation(DELETE_JOB);
+  const [deleteJob] = useMutation(DELETE_JOB);
 
   const removeJob = async () => {
     await deleteJob({

@@ -24,7 +24,7 @@ export default function EditJob() {
 
   const { jobID } = useParams();
   const { loading, data } = useQuery(QUERY_USER_JOB, { variables: { jobID } });
-  const [editJob, { error }] = useMutation(EDIT_JOB);
+  const [editJob] = useMutation(EDIT_JOB);
 
   useEffect(() => {
     if (data) {

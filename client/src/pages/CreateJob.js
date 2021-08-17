@@ -27,7 +27,7 @@ export default function CreateJob() {
     });
   };
 
-  const [addJob, { error }] = useMutation(ADD_JOB);
+  const [addJob] = useMutation(ADD_JOB);
 
   const handleJobFormSubmit = async (event) => {
     event.preventDefault();

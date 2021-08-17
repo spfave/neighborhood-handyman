@@ -39,7 +39,7 @@ export default function SignUp() {
         }
     };
 
-    const [addUser, { error, data }] = useMutation(ADD_USER);
+    const [addUser] = useMutation(ADD_USER);
 
     // submit form
     const handleFormSubmit = async (event) => {
