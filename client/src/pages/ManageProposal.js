@@ -13,7 +13,7 @@ const ManageProposal = () => {
 
   console.log(proposalID);
 
-  const [deleteProposal, { error, data2 }] = useMutation(DELETE_PROPOSAL);
+  const [deleteProposal] = useMutation(DELETE_PROPOSAL);
 
   const removeProposal = async () => {
     await deleteProposal({

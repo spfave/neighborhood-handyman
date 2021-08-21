@@ -25,7 +25,7 @@ export default function EditProposal() {
   const { loading, data } = useQuery(QUERY_USER_PROPOSAL, {
     variables: { proposalID },
   });
-  const [editProposal, { error }] = useMutation(EDIT_PROPOSAL);
+  const [editProposal] = useMutation(EDIT_PROPOSAL);
 
   useEffect(() => {
     if (data) {

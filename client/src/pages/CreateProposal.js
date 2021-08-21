@@ -30,7 +30,7 @@ export default function CreateJob() {
     });
   };
 
-  const [addProposal, { error }] = useMutation(ADD_PROPOSAL);
+  const [addProposal] = useMutation(ADD_PROPOSAL);
 
   const handleProposalFormSubmit = async (event) => {
     event.preventDefault();
